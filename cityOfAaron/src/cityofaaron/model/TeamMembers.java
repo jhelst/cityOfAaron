@@ -1,5 +1,9 @@
 package cityofaaron.model;
 
+/**
+*
+* @author jhelst, carolmadella, ramonandrade
+*/ 
 public enum TeamMembers {
 	
 	
@@ -26,11 +30,12 @@ public enum TeamMembers {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	
-	
-	
-	
 
+	@Override
+	public String toString() {
+		return "TeamMembers [name=" + name + ", title=" + title + "]";
+	}
+	
 
 }
 
