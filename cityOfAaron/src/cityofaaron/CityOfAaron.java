@@ -6,17 +6,36 @@
  */
 package cityofaaron;
 
+import cityofaaron.model.*;
 /**
  *
- * @author jhelst, carolmadella
+ * @author jhelst, carolmadella, ramonandrade
  */
 public class CityOfAaron {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-        // TODO code application logic here
+    	
+    	/*
+    	 
+    	TeamMembers teamM = new TeamMembers(null, null);
+    	
+    	teamM.setName("Ramon");
+    	teamM.setTitle("Major");
+    	
+    	System.out.println(teamM.toString());
+    	
+    	
+    	
+    	Player playerOne = new Player();
+    	
+    	String playerOneName = playerOne.setName("");
+    	Double PlayerOneTime = playerOne.setTime(7.00);
+    	
+    	System.out.println("Name = " + playerOneName + ", time = " + playerOneName);
+    	System.out.println(playerOne.toString());
+    	
+    	*/
+    	
     }
     
 }

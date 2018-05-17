@@ -5,11 +5,10 @@ package cityofaaron.model;
 * @author jhelst, carolmadella, ramonandrade
 */ 
 public enum TeamMembers {
-	
-	
+		
 	private String name;
 	private String title;
-	
+
 	private TeamMembers(String name, String title) {
 		this.name = name;
 		this.title = title;
