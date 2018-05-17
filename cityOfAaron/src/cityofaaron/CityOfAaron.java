@@ -15,16 +15,12 @@ public class CityOfAaron {
 
     public static void main(String[] args) {
     	
+    	// Team Members contructor
+    	TeamMembers.TeamMember1.getName();
+    	TeamMembers.TeamMember1.getTitle();
+    	System.out.println(TeamMembers.TeamMember1.toString());
+    	
     	/*
-    	 
-    	TeamMembers teamM = new TeamMembers(null, null);
-    	
-    	teamM.setName("Ramon");
-    	teamM.setTitle("Major");
-    	
-    	System.out.println(teamM.toString());
-    	
-    	
     	
     	Player playerOne = new Player();
     	
