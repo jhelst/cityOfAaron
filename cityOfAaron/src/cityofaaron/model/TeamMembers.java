@@ -1,10 +1,12 @@
 package cityofaaron.model;
 
+import java.io.Serializable;
+
 /**
-*
-* @author jhelst, carolmadella, ramonandrade
-*/ 
-public enum TeamMembers {
+ *
+ * @author jhelst, carolmadella, ramonandrade
+ */ 
+public enum TeamMembers implements Serializable{
 	
 	TeamMember1("Carolina Perez", "Student"),
 	TeamMember2("Jeff Helsten", "Student"),

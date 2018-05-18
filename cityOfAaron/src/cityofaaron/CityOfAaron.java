@@ -14,24 +14,18 @@ import cityofaaron.model.*;
 public class CityOfAaron {
 
     public static void main(String[] args) {
-    	
-    	// Team Members contructor
-    	TeamMembers.TeamMember1.getName();
-    	TeamMembers.TeamMember1.getTitle();
-    	System.out.println(TeamMembers.TeamMember1.toString());
-    	
-    	/*
-    	
-    	Player playerOne = new Player();
-    	
-    	String playerOneName = playerOne.setName("");
-    	Double PlayerOneTime = playerOne.setTime(7.00);
-    	
-    	System.out.println("Name = " + playerOneName + ", time = " + playerOneName);
-    	System.out.println(playerOne.toString());
-    	
-    	*/
-    	
+    	//Player constructor
+    	Player newPlayer = new Player();
+
+        // Game constructor
+        Game theGame = new Game();
+        
+    	newPlayer.setName("Carolina");
+        System.out.println("Name from newPlayer: " + newPlayer.getName());
+        
+        theGame.setPlayer(new Player());
+        	
+    	System.out.println("From TeamMembers: { Name= " + TeamMembers.TeamMember1.getName() + " Description= " + TeamMembers.TeamMember1.getTitle() + " }");	
     }
     
 }
