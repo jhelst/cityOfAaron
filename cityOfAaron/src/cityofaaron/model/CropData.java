@@ -11,6 +11,7 @@ public class CropData implements Serializable {
     private int year;
     private int population;
     private int acresOwned;
+    private int cropYield;
     private int wheatInStore;
     private int numberWhoDied;
     private int newPeople;
@@ -47,6 +48,16 @@ public class CropData implements Serializable {
     public void setAcresOwned(int acresOwned) {
         this.acresOwned = acresOwned;
     }
+
+    public int getCropYield() {
+        return cropYield;
+    }
+
+    public void setCropYield(int cropYield) {
+        this.cropYield = cropYield;
+    }
+    
+    
 
     public int getWheatInStore() {
         return wheatInStore;
@@ -144,4 +155,8 @@ public class CropData implements Serializable {
         this.wheatForPeople = wheatForPeople;
     }
     
+    @Override
+    public String toString() {
+            return "CropData = { year: " + year + ", population: " + population + ", acresOwned: " + acresOwned + ", cropYield: " + cropYield + ", wheatInStore: " + wheatInStore + ", numberWhoDied: " + numberWhoDied + ", newPeople: " + newPeople + ", harvest: " + harvest + ", harvestAfterOffering: " + harvestAfterOffering + ", offering: " + offering + ", offeringBushels: " + offeringBushels + ", peopleFed:" + peopleFed + ", acresPlanted: " + acresPlanted + ", numStarved: " + numStarved + ", eatenbyRats: " + eatenByRats + ", wheatForPeople: " + wheatForPeople + "}";
+    }
 }

@@ -16,5 +16,5 @@ public class Game implements Serializable{
     }
     public void setPlayer(Player thePlayer) {
         this.thePlayer = thePlayer;
-    } 
+    }
  }           
