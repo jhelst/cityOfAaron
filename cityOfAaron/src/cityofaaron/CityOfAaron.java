@@ -23,8 +23,8 @@ public class CityOfAaron {
     	newPlayer.setName("Carolina");
         System.out.println("Name from newPlayer: " + newPlayer.getName());
         
-        theGame.setPlayer(new Player());
-        	
+        theGame.setPlayer(newPlayer);
+        System.out.println("From Game: " +theGame.getPlayer());
     	System.out.println("From TeamMembers: { Name= " + TeamMembers.TeamMember1.getName() + " Description= " + TeamMembers.TeamMember1.getTitle() + " }");	
     }
     

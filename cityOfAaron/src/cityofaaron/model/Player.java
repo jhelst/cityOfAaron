@@ -24,7 +24,7 @@ public class Player implements Serializable {
     
     @Override
     public String toString() {
-        return "Player{" + "player name="+ name +"}";
+        return "player name="+ name +"}";
 }
 
 }
