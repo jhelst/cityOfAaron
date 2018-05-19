@@ -56,7 +56,17 @@ public class CityOfAaron {
         
         System.out.println("--CropData--");
         System.out.println(testCropData.toString());
+        
+        
+        // Test of location class (May 19) - Ramon Andrade
+        Location loc = new Location();
+        loc.setDescription("Ramon");        
+        loc.setSymbol("$");
+        
+        System.out.println("--Location--");
+        System.out.println(loc.toString());
 
+        
     }
     
 }
