@@ -25,6 +25,9 @@ public class CropData implements Serializable {
     private int eatenByRats;
     private int wheatForPeople;
 
+    public CropData() {
+    }
+    
     public int getYear() {
         return year;
     }
