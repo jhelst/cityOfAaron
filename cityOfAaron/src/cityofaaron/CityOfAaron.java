@@ -23,6 +23,9 @@ public class CityOfAaron {
         
         // CropData constructor
         CropData testCropData = new CropData();
+        
+        //ListItem constructor
+        ListItem newListItem = new ListItem();
 
         // Set player name from newPlayer
     	newPlayer.setName("Carolina");        
