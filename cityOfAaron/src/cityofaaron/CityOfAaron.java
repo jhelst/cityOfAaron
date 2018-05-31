@@ -7,6 +7,7 @@
 package cityofaaron;
 
 import cityofaaron.model.*;
+import cityofaaron.control.*;
 /**
  *
  * @author jhelst, carolmadella, ramonandrade
@@ -68,7 +69,15 @@ public class CityOfAaron {
         
         System.out.println("--Location--");
         System.out.println(loc.toString());
-
+        
+        
+        CropControl cropControl = new CropControl();
+        
+        System.out.println("-- Set Offering --");
+        cropControl.setOffering(10, testCropData);
+        
+        System.out.println(testCropData.getOffering());
+        
         
     }
     
