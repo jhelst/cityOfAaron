@@ -100,12 +100,13 @@ public class CropControl {
      * positive and smaller than 101 Return: void Author: ramonandrade
 	*
      */
-    public static void setOffering(int percentageHarvest, CropData cropData) {
+    public static int setOffering(int percentageHarvest, CropData cropData) {
 
         if (percentageHarvest >= 0 && percentageHarvest <= 100) {
             cropData.setOffering(percentageHarvest);
-            return;
+            return percentageHarvest;
         }
+        return -1;
 
     }
 

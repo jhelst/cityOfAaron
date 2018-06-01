@@ -269,13 +269,41 @@ public class CropControlTest {
     /**
      * Test of setOffering method, of class CropControl.
      */
-//    @Test
-//    public void testSetOffering() {
-//        System.out.println("setOffering");
-//        int percentageHarvest = 0;
-//        CropData cropData = null;
-//        CropControl.setOffering(percentageHarvest, cropData);
-//        // TODO review the generated test code and remove the default call to fail.
-//        fail("The test case is a prototype.");
-//    }
+    @Test
+    public void testSetOffering1() {
+        System.out.println("setOffering()");
+        System.out.println("setOffering1 - invalid %");
+
+        int percentageHarvest = -1;
+        CropData cropData = new CropData();
+        CropControl instance = new CropControl();
+
+        int result = instance.setOffering(percentageHarvest, cropData);
+        int expResult = -1;
+        assertEquals(expResult, result);
+    }
+    @Test
+    public void testSetOffering2() {
+        System.out.println("setOffering2 - invalid %");
+
+        int percentageHarvest = 101;
+        CropData cropData = new CropData();
+        CropControl instance = new CropControl();
+
+        int result = instance.setOffering(percentageHarvest, cropData);
+        int expResult = -1;
+        assertEquals(expResult, result);
+    }
+    @Test
+    public void testSetOffering3() {
+        System.out.println("setOffering3 - valid %");
+
+        int percentageHarvest = 90;
+        CropData cropData = new CropData();
+        CropControl instance = new CropControl();
+
+        int result = instance.setOffering(percentageHarvest, cropData);
+        int expResult = 90;
+        assertEquals(expResult, result);
+    }       
 }
