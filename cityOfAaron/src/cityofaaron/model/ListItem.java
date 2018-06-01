@@ -42,5 +42,9 @@ public class ListItem implements Serializable{
     }
     //System.out.println("--ListItem--");
     //System.out.println(testListItem.toString());
-   
+    
+   @Override
+    public String toString() {
+        return "listitem name ="+ name +" listItem number=" + number + "}";
+}
 }

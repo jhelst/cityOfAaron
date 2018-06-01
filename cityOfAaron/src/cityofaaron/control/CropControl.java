@@ -157,6 +157,34 @@ public class CropControl {
             return wheatInStore;
 	}
 
-	
+	 /**
+        * The feedPeople method
+        * Purpose: To feed the people
+        * @param:  number of bushels of grain
+        * @param: reference to a CropData object
+        * @ return the number of bushels of grains
+        * Author: carolmadella
+        **/
+        
+        public static int feedPeople (int bushelsOfGrain, CropData cropData){
+                
+            if (bushelsOfGrain < 0)
+            return -1;
+            
+            int wheatInStore = cropData.getWheatInStore();
+            if (wheatInStore < bushelsOfGrain)
+            return -1;
+            
+            //get remaining wheat afer setting aside for people
+            int remainingWheat = (wheatInStore - bushelsOfGrain);
+            
+            // set aside wheat for people
+            int totalToFeed = cropData.getWheatForPeople();
+                totalToFeed += bushelsOfGrain;
+            // update cropData
+            cropData.setWheatForPeople(totalToFeed);
+
+            return remainingWheat;        
+            }
 	
 }
