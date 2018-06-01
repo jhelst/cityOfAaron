@@ -120,6 +120,42 @@ public class CropControl {
 		}
 		
 	}
+        
+        /**
+        * The plantCrops method
+        * Purpose: To plant crops
+        * @param:  number of acres to plant
+        * @param: reference to a CropData object
+        * @ return the number of acres planted
+        * Author: jhelst
+        **/
+        public static int plantCrops(int acresToPlant, CropData cropData) {
+          
+            if (acresToPlant < 0)
+            return -1;
+            
+            int wheatInStore = cropData.getWheatInStore();
+            if (wheatInStore < acresToPlant / 2 )
+            return -1;
+            
+            int acresOwned = cropData.getAcresOwned();
+            if (acresOwned < acresToPlant)
+            return -1;
+            
+            int acresPlanted = cropData.getAcresPlanted();
+            acresPlanted += acresToPlant;
+            cropData.setAcresPlanted(acresPlanted);
+            
+            
+            acresOwned -= acresToPlant;
+            cropData.setAcresOwned(acresOwned);
+            
+            wheatInStore -= (acresToPlant / 2);
+            cropData.setWheatInStore(wheatInStore);
+
+            // return wheatInStore
+            return wheatInStore;
+	}
 
 	
 	
