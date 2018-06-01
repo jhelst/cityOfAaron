@@ -97,8 +97,9 @@ public class CropControl {
     /**
      * setOffering() method Purpose: Pay Tithes and Offerings Parameters: the
      * percentage of harvest Pre-conditions: the harvest percentage must
-     * positive and smaller than 101 Return: void Author: ramonandrade
-	*
+     * positive and smaller than 101 
+     * Return: int
+     * Author: ramonandrade
      */
     public static int setOffering(int percentageHarvest, CropData cropData) {
 
@@ -115,8 +116,8 @@ public class CropControl {
      *
      * @param: number of acres to plant
      * @param: reference to a CropData object
-     * @ return the number of acres planted Author: jhelst
-        *
+     * @ return the number of acres planted 
+     * Author: jhelst
      */
     public static int plantCrops(int acresToPlant, CropData cropData) {
 
