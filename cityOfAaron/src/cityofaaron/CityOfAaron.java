@@ -8,13 +8,20 @@ package cityofaaron;
 
 import cityofaaron.model.*;
 import cityofaaron.control.*;
+import view.*;
 /**
  *
  * @author jhelst, carolmadella, ramonandrade
  */
 public class CityOfAaron {
+    
+    // variable for keeping a reference to the Game object
+    private static Game theGame = null;
 
     public static void main(String[] args) {
+        // Main Menu constructor
+        MainMenuView mmv = new MainMenuView();
+        mmv.displayMenuView();
         
     	//Player constructor
     	Player newPlayer = new Player();
