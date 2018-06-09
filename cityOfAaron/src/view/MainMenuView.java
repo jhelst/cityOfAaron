@@ -5,6 +5,8 @@
  */
 package view;
 import java.util.Scanner;
+import gameproject.GameProject;
+import model.Player;
 /**
  *The MainMenuView class - part of the view layer
  *Object of this class manages the main menu
@@ -19,11 +21,20 @@ public class MainMenuView {
 * Returns: none
 */
 public void displayMenuView(){
-    
-// Display the menu
-// Prompt the user and get the user’s input // Perform the desired action
-// Determine and display the next view
-}
+    int menuOption;
+    do
+    {
+        // Display the menu
+        System.out.printLn(theMenu);    
+        
+        // Prompt the user and get the user’s input 
+        menuOption = getMenuOption();
+        
+        // Perform the desired action
+        doAction(menuOption);
+        
+        // Determine and display the next view
+    } while(menuOption != max);
 
 /**
  * The getMenuOption method
