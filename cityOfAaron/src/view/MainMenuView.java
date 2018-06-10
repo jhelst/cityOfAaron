@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package view;
+import cityofaaron.CityOfAaron;
 import java.util.Scanner;
 //import gameproject.GameProject;
 import cityofaaron.model.*;
@@ -136,7 +137,7 @@ public class MainMenuView {
 		 Game theGame = new Game();
 		 
 		 // Save a reference to it in the GameProject class.
-		 GameProject.setCurrentGame(theGame);
+		 CityOfAaron.setCurrentGame(theGame);
 		 
 		 // Display the Banner Page.
 		 System.out.println("Welcome to the city of Aaron.");
