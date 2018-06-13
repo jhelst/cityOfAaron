@@ -17,13 +17,14 @@ public class CropControl {
     // random number generator
     private static Random random = new Random();
 
+    
     // sellLand method
     // Purpose: Sell land - subtracts from the acres owned
     // Parameters: the price of land, the number of acres to sell, and
     // a reference to a CropData object
     // Pre-conditions: acresToSell >= 0 and acresToSell <= acresOwned
     // Returns: the number of acres owned after the sale
-    public int sellLand(int landPrice, int acresToSell, CropData cropData) {
+    public static int sellLand(int landPrice, int acresToSell, CropData cropData) {
         //if acresToSell < 0, return -1
         if (acresToSell < 0) {
             return -1;
@@ -47,6 +48,7 @@ public class CropControl {
         return acresOwned;
     }
 
+    
     // calcLandPrice() method
     // Purpose: Calculate a random land cost between 17 and 26 bushels/acre
     // Parameters: none
@@ -64,7 +66,7 @@ public class CropControl {
      * purchase 
 	*
      */
-    public int buyLand(int landPrice, int acresToBuy, CropData cropData) {
+    public static int buyLand(int landPrice, int acresToBuy, CropData cropData) {
         //if acresToSell < 0, return -1
         if (acresToBuy < 0) {
             return -1;
@@ -149,7 +151,8 @@ public class CropControl {
         return wheatInStore;
     }
 
-    /**
+    
+    /*
      * The feedPeople method Purpose: To feed the people
      *
      * @param: number of bushels of grain
@@ -178,6 +181,20 @@ public class CropControl {
         cropData.setWheatForPeople(totalToFeed);
 
         return wheatInStore;
+    }
+    
+    
+    
+    /*
+    * calcLandCost() method
+    * Purpose: Calculate a random land cost between 17 and 27 bushels/acre
+    * Parameters: none
+    * Returns: the land cost
+    */
+    public static int calcLandCost()
+    {
+    int landPrice = random.nextInt(LAND_RANGE) + LAND_BASE;
+    return landPrice;
     }
 
 }

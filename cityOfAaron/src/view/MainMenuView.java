@@ -5,6 +5,8 @@
  */
 package view;
 import cityofaaron.CityOfAaron;
+import cityofaaron.control.CropControl;
+
 import java.util.Scanner;
 //import gameproject.GameProject;
 import cityofaaron.model.*;
@@ -42,7 +44,7 @@ public class MainMenuView {
 	        // Display the menu
 	        System.out.println(theMenu);    
 	        
-	        // Prompt the user and get the user’s input 
+	        // Prompt the user and get the users input 
 	        menuOption = getMenuOption();
 	        
 	        // Perform the desired action
@@ -61,8 +63,8 @@ public class MainMenuView {
 	 // ===================================
 	 public int getMenuOption()
 	 {
-	 // declare a variable to hold user’s input
-	     int userInput;
+	 // declare a variable to hold users input
+	 int userInput;
 	 // begin loop
 	 do
 	 {
@@ -108,17 +110,22 @@ public class MainMenuView {
  
  
 	 private void displaySaveGameView() {
-		// TODO Auto-generated method stub
+		
+		 CropView.runCropsView();
+		 // Display a stub message
+		 //System.out.println("Save Game View!");
 		
 	}
 
 	private void displayHelpMenuView() {
-		// TODO Auto-generated method stub
-		
+		// Display a stub message
+		System.out.println("Help Menu!");
 	}
 
 	private void startSavedGame() {
-		// TODO Auto-generated method stub
+		
+		// Display a stub message
+		System.out.println("Saved Game!");
 		
 	}
 
@@ -136,6 +143,26 @@ public class MainMenuView {
 		 //Create a new Game object.
 		 Game theGame = new Game();
 		 
+		// Create a CropData object,
+		 CropData cropData = new CropData();
+		 
+		 // initialize it
+		 cropData.setYear(0);
+		 cropData.setPopulation(100);
+		 cropData.setNewPeople(5);
+		 cropData.setCropYield(3);
+		 cropData.setNumberWhoDied(0);
+		 cropData.setOffering(10);
+		 cropData.setWheatInStore(2700);
+		 cropData.setAcresOwned(1000);
+		 cropData.setAcresPlanted(1000);
+		 cropData.setHarvest(3000);
+		 cropData.setOfferingBushels(300);
+		 cropData.setAcresPlanted(1000);
+		 
+		 // save a reference to it in the Game
+		 theGame.setCrop(cropData); 
+		 
 		 // Save a reference to it in the GameProject class.
 		 CityOfAaron.setCurrentGame(theGame);
 		 
@@ -145,11 +172,11 @@ public class MainMenuView {
 		 // Create a new Player object
 		 Player thePlayer = new Player();
 		 
-		// Prompt for and get the user’s name.
+		// Prompt for and get the users name.
 		 System.out.println("Please type in your first name: ");
 		 name = keyboard.next();
 		 
-		 // Save the user’s name in the Player object
+		 // Save the users name in the Player object
 		 thePlayer.setName(name);
 		 
 		 // Save a reference to the player object in the Game object
@@ -159,6 +186,8 @@ public class MainMenuView {
 		 System.out.println("Welcome " + name + " have fun!");
 		 
 		 // Start the game
+		 //CropView.runCropsView();
+	
 	 
 	 }
 

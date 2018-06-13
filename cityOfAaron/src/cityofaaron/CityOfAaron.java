@@ -33,6 +33,7 @@ public class CityOfAaron {
         MainMenuView mmv = new MainMenuView();
         mmv.displayMenuView();
         
+        /*
     	//Player constructor
     	Player newPlayer = new Player();
         
@@ -46,9 +47,9 @@ public class CityOfAaron {
         ListItem newListItem = new ListItem();
 
         // Set player name from newPlayer
-    	newPlayer.setName("Carolina");        
+    	//newPlayer.setName("Carolina");        
         // Set player name from theGame
-        theGame.setPlayer(newPlayer);
+        //theGame.setPlayer(newPlayer);
         
         
         
@@ -96,6 +97,8 @@ public class CityOfAaron {
         cropControl.setOffering(10, testCropData);
         
         System.out.println(testCropData.getOffering());
+        
+        */
         
         
     }
