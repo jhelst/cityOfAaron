@@ -111,9 +111,8 @@ public class MainMenuView {
  
 	 private void displaySaveGameView() {
 		
-		 CropView.runCropsView();
 		 // Display a stub message
-		 //System.out.println("Save Game View!");
+		 System.out.println("Save Game View!");
 		
 	}
 
@@ -126,7 +125,7 @@ public class MainMenuView {
 		
 		// Display a stub message
 		System.out.println("Saved Game!");
-		
+
 	}
 
 	/**
@@ -186,6 +185,8 @@ public class MainMenuView {
 		 System.out.println("Welcome " + name + " have fun!");
 		 
 		 // Start the game
+		 
+		 // Test all sellland
 		 //CropView.runCropsView();
 	
 	 
