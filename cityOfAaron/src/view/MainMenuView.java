@@ -32,6 +32,7 @@ public class MainMenuView {
  
    int max = 5;
    
+   
    /**
 	* The displayMenuView method
 	* Purpose: displays the menu, gets the user's input, and does the * selected action
@@ -54,6 +55,7 @@ public class MainMenuView {
 	    } while(menuOption != max);
 	}
 
+	
 	/**
 	 * The getMenuOption method
 	 * Purpose: gets the user's input
