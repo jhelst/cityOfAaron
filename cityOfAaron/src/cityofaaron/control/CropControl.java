@@ -48,16 +48,6 @@ public class CropControl {
         return acresOwned;
     }
 
-    
-    // calcLandPrice() method
-    // Purpose: Calculate a random land cost between 17 and 26 bushels/acre
-    // Parameters: none
-    // Returns: the land price
-    public static int calcLandPrice() {
-        int landPrice = random.nextInt(LAND_RANGE) + LAND_BASE;
-        return landPrice;
-    }
-
     /**
      * buyLand() method Purpose: To buy land Parameters: the price of land, the
      * number of acres to buy, a reference to a CropData object Pre-conditions:

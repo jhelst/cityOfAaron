@@ -154,9 +154,9 @@ public class MainMenuView {
 		 cropData.setCropYield(3);
 		 cropData.setNumberWhoDied(0);
 		 cropData.setOffering(10);
-		 cropData.setWheatInStore(2700);
-		 cropData.setAcresOwned(1000);
-		 cropData.setAcresPlanted(1000);
+		 cropData.setWheatInStore(27000);
+		 cropData.setAcresOwned(10000);
+		 cropData.setAcresPlanted(10000);
 		 cropData.setHarvest(3000);
 		 cropData.setOfferingBushels(300);
 		 cropData.setAcresPlanted(1000);
@@ -189,7 +189,7 @@ public class MainMenuView {
 		 // Start the game
 		 
 		 // Test all sellland
-		 //CropView.runCropsView();
+		 CropView.runCropsView();
 	
 	 
 	 }
