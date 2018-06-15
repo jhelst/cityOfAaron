@@ -109,25 +109,25 @@ public class CropView {
 
     public static void displayCropsReportView() {
            
-        int yearNumber = cropData.getYear()
-        int peopleStarved = cropData.getNumberStarved()
-        int peopleInTheCity = cropData.getNumberInTheCity()
-        int population = cropData.getCurrentPopulation()
-        int landOwned = cropData.getNumberOfLandOwned()
-        int bushelsbushPerAcreThisYear = cropData.getBushelsPerAcre()
-        int bushelsPaid = cropData.getNumberBushelsPaid()
-        int bushelsEatenByRats = cropData.getNumBushelsEaten()
-        int bushelsInStore = cropData.getNumBushelsInStore()
+        int yearNumber = cropData.getYear();
+        int peopleStarved = cropData.getNumStarved();
+        int newPeople = cropData.getNewPeople();
+        int population = cropData.getPopulation();
+        int acresOwned = cropData.getAcresOwned();
+        int cropYield = cropData.getCropYield();
+        int offeringBushels = cropData.getOfferingBushels();
+        int eatenByRats = cropData.getEatenByRats();
+        int wheatInStore = cropData.getWheatInStore();
                 
         System.out.format("Year:" + yearNumber + " %n");
         System.out.format("Number of people starved: " + peopleStarved + " %n");
-        System.out.format("Number of people in the city: " + peopleInTheCity + " %n");
+        System.out.format("Number of people in the city: " + newPeople + " %n");
         System.out.format("Number of current population: " + population + " %n");
-        System.out.format("Number of land owned by the city: " + landOwned + " %n");
-        System.out.format("Number of bushels per acre harvested this year: " + bushelsbushPerAcreThisYear + " %n");
-        System.out.format("Number of bushels paid: " + bushelsPaid + " %n");
-        System.out.format("Number of eaten by rats: " + bushelsEatenByRats + " %n");
-        System.out.format("Number of bushels in store: " + bushelsInStore + " %n");
+        System.out.format("Number of land owned by the city: " + acresOwned + " %n");
+        System.out.format("Number of bushels per acre harvested this year: " + cropYield + " %n");
+        System.out.format("Number of bushels paid: " + offeringBushels + " %n");
+        System.out.format("Number of eaten by rats: " + eatenByRats + " %n");
+        System.out.format("Number of bushels in store: " + wheatInStore + " %n");
         }
     
 }
