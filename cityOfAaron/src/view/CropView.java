@@ -53,6 +53,7 @@ public class CropView {
 //sellLandView();
         feedPeopleView();
         plantCropsView();
+        showStarvedView();
 // add calls to the other crop view methods
 // as they are written
     }
@@ -101,37 +102,32 @@ public class CropView {
     }
     public static void showStarvedView() {
     
-// Prompt the user to enter the number of starving people
-        System.out.format("How many people is starving? %n");
-// Get the user’s input and save it.
-        int getNumStarved;
-        getNumStarved = keyboard.nextInt();
-// Call the feedPeople( ) method in the control layer to subtract bushels and feed people
-        int inStore = CropControl.showStarved(getNumStarved, cropData);
-        if (inStore != -1) {
-            System.out.format("This is not a value. Please enter a new number of starving people. %n");
-
-        } else {
-            System.out.format("Crops planted1. " + inStore + " Number of starving people. %n");
+        int numStarved= CropControl.getNumStarved();
+        System.out.format("Number of people starved:" + numStarved + " %n");
 
         }
-    
+
     public static void displayCropsReportView() {
-    
-// Prompt the user to enter the number crops planted
-        System.out.format("How many crops were harvested? %n");
-// Get the user’s input and save it.
-        int getNumCrops;
-        getNumCrops = keyboard.nextInt();
-// Call the feedPeople( ) method in the control layer to subtract bushels and feed people
-        int inStore = CropControl.displayCropsReport(getNumCrops, cropData);
-        if (inStore != -1) {
-            System.out.format("No plants were harvested. Please enter a new number. %n");
-
-        } else {
-            System.out.format("Crops planted1. " + inStore + " Number of crops Harvested. %n");
-
+           
+        int yearNumber = cropData.getYear()
+        int peopleStarved = cropData.getNumberStarved()
+        int peopleInTheCity = cropData.getNumberInTheCity()
+        int population = cropData.getCurrentPopulation()
+        int landOwned = cropData.getNumberOfLandOwned()
+        int bushelsbushPerAcreThisYear = cropData.getBushelsPerAcre()
+        int bushelsPaid = cropData.getNumberBushelsPaid()
+        int bushelsEatenByRats = cropData.getNumBushelsEaten()
+        int bushelsInStore = cropData.getNumBushelsInStore()
+                
+        System.out.format("Year:" + yearNumber + " %n");
+        System.out.format("Number of people starved: " + peopleStarved + " %n");
+        System.out.format("Number of people in the city: " + peopleInTheCity + " %n");
+        System.out.format("Number of current population: " + population + " %n");
+        System.out.format("Number of land owned by the city: " + landOwned + " %n");
+        System.out.format("Number of bushels per acre harvested this year: " + bushelsbushPerAcreThisYear + " %n");
+        System.out.format("Number of bushels paid: " + bushelsPaid + " %n");
+        System.out.format("Number of eaten by rats: " + bushelsEatenByRats + " %n");
+        System.out.format("Number of bushels in store: " + bushelsInStore + " %n");
         }
-    }
     
 }
