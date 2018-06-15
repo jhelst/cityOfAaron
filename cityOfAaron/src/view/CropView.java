@@ -12,7 +12,7 @@ import cityofaaron.CityOfAaron;
 
 /**
  *
- * @author jhelst, Ramon Andrade
+ * @author jhelst, Ramon Andrade, carolmadella
  */
 public class CropView {
 
@@ -99,5 +99,39 @@ public class CropView {
 
         }
     }
+    public static void showStarvedView() {
+    
+// Prompt the user to enter the number of starving people
+        System.out.format("How many people is starving? %n");
+// Get the user’s input and save it.
+        int getNumStarved;
+        getNumStarved = keyboard.nextInt();
+// Call the feedPeople( ) method in the control layer to subtract bushels and feed people
+        int inStore = CropControl.showStarved(getNumStarved, cropData);
+        if (inStore != -1) {
+            System.out.format("This is not a value. Please enter a new number of starving people. %n");
 
+        } else {
+            System.out.format("Crops planted1. " + inStore + " Number of starving people. %n");
+
+        }
+    
+    public static void displayCropsReportView() {
+    
+// Prompt the user to enter the number crops planted
+        System.out.format("How many crops were harvested? %n");
+// Get the user’s input and save it.
+        int getNumCrops;
+        getNumCrops = keyboard.nextInt();
+// Call the feedPeople( ) method in the control layer to subtract bushels and feed people
+        int inStore = CropControl.displayCropsReport(getNumCrops, cropData);
+        if (inStore != -1) {
+            System.out.format("No plants were harvested. Please enter a new number. %n");
+
+        } else {
+            System.out.format("Crops planted1. " + inStore + " Number of crops Harvested. %n");
+
+        }
+    }
+    
 }
