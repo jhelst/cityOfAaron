@@ -42,6 +42,36 @@ public class CropView {
             System.out.format("Unable to purchase, please try another value. %n");
         }
     }
+    
+    // sellLandView method
+    // Purpose: Sell land: interface with the user imput
+    // Parameters: none
+    // Returns: void
+     public static void sellLandView() {
+         
+       // Get the cost of land for this round.
+        int landPrice = CropControl.calcLandCost();
+        int acresOwned = CropData.getAcresOwned();
+         
+        // Prompt the user to enter the number of acres to sell
+        System.out.format("You have %d acres owned.%n", acresOwned);
+        System.out.format("How many acres of land do you wish to sell? ");
+
+         // Get the user’s input and save it.
+        int acresToSell;
+        acresToSell = keyboard.nextInt();
+
+         // Call the sellLand() method in the control layer to sell the land
+        int sellland = CropControl.sellLand(landPrice, acresToSell, cropData);
+
+        if (sellland != -1) {
+            System.out.format("Sale completed. You now have " + sellland + " acres. %n");
+        } else {
+            System.out.format("Unable to sell, please try another value. %n");
+        }
+         
+     }
+     
 
     /**
      * The runCropsView method() Purpose: runs the game Parameters: none
@@ -50,7 +80,7 @@ public class CropView {
     public static void runCropsView() {
 // call the buyLandView( ) method
         buyLandView();
-//sellLandView();
+        sellLandView();
         feedPeopleView();
         plantCropsView();
         showStarvedView();
