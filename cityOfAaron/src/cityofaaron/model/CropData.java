@@ -10,7 +10,7 @@ public class CropData implements Serializable {
     
     private int year;
     private int population;
-    private int acresOwned;
+    private static int acresOwned;
     private int cropYield;
     private int wheatInStore;
     private int numberWhoDied;
@@ -44,7 +44,7 @@ public class CropData implements Serializable {
         this.population = population;
     }
 
-    public int getAcresOwned() {
+    public static int getAcresOwned() {
         return acresOwned;
     }
 

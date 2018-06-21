@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package view;
+package cityofaaron.view;
 import cityofaaron.CityOfAaron;
 import cityofaaron.control.CropControl;
 
@@ -17,71 +17,27 @@ import cityofaaron.model.*;
  */
 
 
-public class MainMenuView {
-   Scanner keyboard = new Scanner(System.in); 
-   
-   String theMenu = "\n" +
-   "**********************************\n" +
-   "* CITY OF AARON: MAIN GAME MENU *\n" +
-   "**********************************\n" +
-   " 1 - Start new game\n" +
-   " 2 - Get and start a saved game\n" +
-   " 3 - Get help on playing the game\n" +
-   " 4 - Save game\n" +
-   " 5 - Quit\n";
- 
-   int max = 5;
-   
-   
-   /**
-	* The displayMenuView method
-	* Purpose: displays the menu, gets the user's input, and does the * selected action
+public class MainMenuView extends MenuView{
+	
+	/**
+	* The MainMenuView constructor
+	* Purpose: Initialize the menu data
 	* Parameters: none
 	* Returns: none
 	*/
-	public void displayMenuView(){
-	int menuOption;
-	    do{
-	        // Display the menu
-	        System.out.println(theMenu);    
-	        
-	        // Prompt the user and get the users input 
-	        menuOption = getMenuOption();
-	        
-	        // Perform the desired action
-	        doAction(menuOption);
-	        
-	        // Determine and display the next view
-	    } while(menuOption != max);
-	}
-
-	
-	/**
-	 * The getMenuOption method
-	 * Purpose: gets the user's input
-	 * Parameters: none
-	 * Returns: integer - the option selected
-	 */
-	 // ===================================
-	 public int getMenuOption()
-	 {
-	 // declare a variable to hold users input
-	 int userInput;
-	 // begin loop
-	 do
-	 {
-	      // get user input from the keyboard
-	     userInput = keyboard.nextInt();
-	     
-	     // if it is not a valid value, output an error message
-	     if (userInput <1 || userInput > max) {
-	         System.out.println("Option must be between 1 and " + max);
-	     }
-	            // loop back to the top if input was not valid
-	 } while (userInput < 1 || userInput > max);
-	 // return the value input by the user
-	    return userInput;
-	 }
+	public MainMenuView()
+	{
+		super( "\n" +
+		"**********************************\n" +
+		"* CITY OF AARON: MAIN GAME MENU *\n" +
+		"**********************************\n" +
+		" 1 - Start new game\n" +
+		" 2 - Get and start a saved game\n" +
+		" 3 - Get help on playing the game\n" +
+		" 4 - Save game\n" +
+		" 5 - Quit\n",
+		5);
+	}  
  
 	/**
 	*The doAction method
@@ -89,7 +45,7 @@ public class MainMenuView {
 	* Parameters: none
 	* Returns: none
 	*/
-	public void doAction(int option)
+	@Override public void doAction(int option)
 	 {
 	     // TODO: These method calls will have errors until they are each added to the class
 	     switch(option) {

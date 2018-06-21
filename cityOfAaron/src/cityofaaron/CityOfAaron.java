@@ -7,8 +7,8 @@
 package cityofaaron;
 
 import cityofaaron.model.*;
+import cityofaaron.view.*;
 import cityofaaron.control.*;
-import view.*;
 /**
  *
  * @author jhelst, carolmadella, ramonandrade
@@ -31,7 +31,7 @@ public class CityOfAaron {
     public static void main(String[] args) {
         // Main Menu constructor
         MainMenuView mmv = new MainMenuView();
-        mmv.displayMenuView();
+        mmv.displayMenu();
         
         /*
     	//Player constructor

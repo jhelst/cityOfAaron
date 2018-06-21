@@ -75,7 +75,7 @@ public class CropControl {
         }
 
         // add new acreage
-        int acresOwned = cropData.getAcresOwned();
+        int acresOwned = CropData.getAcresOwned();
         acresOwned += acresToBuy;
         cropData.setAcresOwned(acresOwned);
 

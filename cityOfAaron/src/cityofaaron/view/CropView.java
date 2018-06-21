@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package view;
+package cityofaaron.view;
 
 import cityofaaron.model.*;
 import cityofaaron.control.*;
@@ -132,7 +132,7 @@ public class CropView {
     }
     public static void showStarvedView() {
     
-        int numStarved= CropControl.getNumStarved();
+        int numStarved= CropData.getAcresOwned();
         System.out.format("Number of people starved:" + numStarved + " %n");
 
         }
