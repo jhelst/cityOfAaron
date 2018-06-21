@@ -17,12 +17,23 @@ public class CityOfAaron {
     
     // variable for keeping a reference to the Game object
     private static Game theGame = null;
+    
+    private static Game currentGame = null;
+    
+    public static Game getCurrentGame() {
+        return currentGame;
+    }
+    
+    public static void setCurrentGame(Game theGame) {
+        currentGame = theGame;
+    }
 
     public static void main(String[] args) {
         // Main Menu constructor
         MainMenuView mmv = new MainMenuView();
         mmv.displayMenuView();
         
+        /*
     	//Player constructor
     	Player newPlayer = new Player();
         
@@ -36,9 +47,11 @@ public class CityOfAaron {
         ListItem newListItem = new ListItem();
 
         // Set player name from newPlayer
-    	newPlayer.setName("Carolina");        
+    	//newPlayer.setName("Carolina");        
         // Set player name from theGame
-        theGame.setPlayer(newPlayer);
+        //theGame.setPlayer(newPlayer);
+        
+        
         
         // Print out player information for Team Assignment (May 17)
         System.out.println("--Player--");        
@@ -84,6 +97,8 @@ public class CityOfAaron {
         cropControl.setOffering(10, testCropData);
         
         System.out.println(testCropData.getOffering());
+        
+        */
         
         
     }
