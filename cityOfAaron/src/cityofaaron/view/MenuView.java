@@ -32,7 +32,7 @@ public abstract class MenuView implements ViewInterface
 	* selected action
 	* Parameters: none
 	* Returns: none
-	 */
+	*/
 	@Override public void displayMenu()
 	{
 		// execute this loop as long as the selected option is not max

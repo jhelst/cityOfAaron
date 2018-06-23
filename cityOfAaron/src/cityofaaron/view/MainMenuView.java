@@ -63,6 +63,7 @@ public class MainMenuView extends MenuView{
 	             break;
 	         case 5: 
 	             System.out.println("Thanks for playing...goodbye.");
+	             break;
 	     }
 	}
  
@@ -81,8 +82,9 @@ public class MainMenuView extends MenuView{
 
 	private void startSavedGame() {
 		
-		// Display a stub message
-		System.out.println("Saved Game!");
+		 // Start the game
+		 GameMenuView menu = new GameMenuView();
+		 menu.displayMenu();
 
 	}
 
@@ -142,10 +144,11 @@ public class MainMenuView extends MenuView{
 		 // Display a welcome message
 		 System.out.println("Welcome " + name + " have fun!");
 		 
-		 // Start the game
 		 
-		 // Test all sellland
-		 CropView.runCropsView();
+		 
+		 // Start the game
+		 GameMenuView menu = new GameMenuView();
+		 menu.displayMenu();
 	
 	 
 	 }
