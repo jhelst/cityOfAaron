@@ -76,8 +76,9 @@ public class MainMenuView extends MenuView{
 	}
 
 	private void displayHelpMenuView() {
-		// Display a stub message
-		System.out.println("Help Menu!");
+		// Display Help Menu View
+		 HelpMenuView menu = new HelpMenuView();
+		 menu.displayMenu();
 	}
 
 	private void startSavedGame() {
@@ -87,7 +88,7 @@ public class MainMenuView extends MenuView{
 		 menu.displayMenu();
 
 	}
-
+      
 	/**
 	 * The startNewGame method
 	 * Purpose: creates game object and starts the game
