@@ -5,7 +5,7 @@
  */
 package cityofaaron.view;
 import cityofaaron.CityOfAaron;
-import cityofaaron.control.CropControl;
+import cityofaaron.control.*;
 
 import java.util.Scanner;
 //import gameproject.GameProject;
@@ -158,7 +158,8 @@ public class MainMenuView extends MenuView{
 		 // Display a welcome message
 		 System.out.println("Welcome " + name + " have fun!");
 		 
-		 
+		 // call createNewGame() method, pass name as param
+                 GameControl.createNewGame(name);
 		 
 		 // Start the game
 		 GameMenuView menu = new GameMenuView();
