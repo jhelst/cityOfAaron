@@ -99,33 +99,11 @@ public class MainMenuView extends MenuView{
 	 public void startNewGame()
 	 {
 		 String name;
+		 		 
+		//Initializate the game
+		GameControl.createCropDataObject();
 		 
-		 //Create a new Game object.
-		 Game theGame = new Game();
-		 
-		// Create a CropData object,
-		 CropData cropData = new CropData();
-		 
-		 // initialize it
-		 cropData.setYear(0);
-		 cropData.setPopulation(100);
-		 cropData.setNewPeople(5);
-		 cropData.setCropYield(3);
-		 cropData.setNumberWhoDied(0);
-		 cropData.setOffering(10);
-		 cropData.setWheatInStore(27000);
-		 cropData.setAcresOwned(10000);
-		 cropData.setAcresPlanted(10000);
-		 cropData.setHarvest(3000);
-		 cropData.setOfferingBushels(300);
-		 cropData.setAcresPlanted(1000);
-		 
-		 // save a reference to it in the Game
-		 theGame.setCrop(cropData); 
-		 
-		 // Save a reference to it in the GameProject class.
-		 CityOfAaron.setCurrentGame(theGame);
-		 
+		
 		 // Show banner page 
                  System.out.println(
                      "********************************************************\n"
@@ -142,29 +120,20 @@ public class MainMenuView extends MenuView{
                      + "* the people. And oh, watch out for plagues and rats! *\n"
                      + "********************************************************\n");
 	
-		 // Create a new Player object
-		 Player thePlayer = new Player();
 		 
 		// Prompt for and get the users name.
 		 System.out.println("Please type in your first name: ");
 		 name = keyboard.next();
-		 
-		 // Save the users name in the Player object
-		 thePlayer.setName(name);
-		 
-		 // Save a reference to the player object in the Game object
-		 theGame.setPlayer(thePlayer);
-		 
+		  
 		 // Display a welcome message
 		 System.out.println("Welcome " + name + " have fun!");
 		 
 		 // call createNewGame() method, pass name as param
-                 GameControl.createNewGame(name);
+         GameControl.createNewGame(name);
 		 
 		 // Start the game
 		 GameMenuView menu = new GameMenuView();
 		 menu.displayMenu();
-	
 	 
 	 }
 
