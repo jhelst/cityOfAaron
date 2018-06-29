@@ -11,7 +11,7 @@ import cityofaaron.model.*;
 
 /**
  *
- * @author jeffh
+ * @author jeffh, ramondandrade
  */
 
 public class GameControl {
@@ -32,18 +32,20 @@ public class GameControl {
         thePlayer.setName(name);
         theGame.setPlayer(thePlayer);
         
-     // create the CropData object   
-        CropData cropData = new CropData();
+        // create the CropData object   
+        createCropDataObject();
    
         // create the list of animals
+        createAnimalList();
    
         // create the list of tools
+        createToolList();
         
         //create the list of provisions
- 
+        createProvisionList();
 
         // create the Locations and the Map object
-        
+        createMap();
      
     }
     
@@ -68,18 +70,75 @@ public class GameControl {
 	    theGame.setCrop(theCrops);
     }
    
+    public static void displayMap(){
+    	
+    	 System.out.println("Display the Map");
+    }
    
-    public static void createMap(){
-    	
+    /**
+    * The createMap method
+    * Purpose: creates the location objects and the map
+    * Parameters: none
+    * Returns: none
+    */
+    public static void createMap()
+    {
+		  // create the Map object,
+		  // refer to the Map constructor
+    	 // Map theMap = new Map(MAX_ROW, MAX_COL);
+		    
+		 // create a string that will go in the Location objects
+		 // that contain the river
+		 String river = "You are on the River. The river is the source\n" +
+		 "of life for our city. The river marks the eastern\n " +
+		 "boundary of the city - it is wilderness to the East.\n";
+		 // create a new Location object
+		 Location loc = new Location();
+		 
+		 // use setters in the Location class to set the description and symbol
+		 loc.setDescription(river);
+		 loc.setSymbol("~~~");
+		 
+		 // set this location object in each cell of the array in column 4
+		 for(int i = 0; i < MAX_ROW; i++)
+		 {
+			// theMap.setLocation(i, 4, loc);
+		 }
+		 
+		//define the string for a farm land location
+		String farmland = "You are on the fertile banks of the River.\n" +
+		"In the spring, this low farmland floods and is covered with rich\n" +
+		"new soil. Wheat is planted as far as you can see.";
+		//set a farmland location with a hint
+		loc = new Location();
+		loc.setDescription(farmland + "\nOne bushel will plant two acres of wheat.");
+		loc.setSymbol("!!!");
+		//theMap.setLocation(0, 2, loc);
+		
+	    theGame = new Game();	
+		//theGame.setMap(theMap);
     }
-    public static void createAnimalList(){
+    
+    public static void createAnimalList()
+    {
     	
+    ArrayList<ListItem> animals = new ArrayList<ListItem>();
+    //animals.add(new ListItem("cows", 12));
+    //animals.add(new ListItem("horses", 3));
+    //animals.add(new ListItem("pigs", 7));
+    //animals.add(new  ListItem("goats", 4));
+    
+    // Save the animals in the game
+    //theGame.setAnimals(animals);
+	
     }
+    
     public static void createToolList(){
-    	
+    	 System.out.println("Tool List");
     }
+    
     public static void createProvisionList(){
-    	
+    	 System.out.println("Provision List");
     }
     
     
