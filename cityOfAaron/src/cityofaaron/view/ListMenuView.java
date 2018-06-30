@@ -90,7 +90,11 @@ public class ListMenuView extends MenuView{
 		
 		ArrayList<ListItem> tools = gettheGame.getTools();
 		
-		System.out.println(tools);
+		
+		for (ListItem listTools : tools) { 
+			
+	           System.out.println(listTools.toString()); 		
+	      }
 		
 	}
 
