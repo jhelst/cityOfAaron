@@ -73,6 +73,7 @@ public class GameControl {
     public static void displayMap(){
     	
     	 System.out.println("Display the Map");
+    
     }
    
     /**
@@ -85,13 +86,14 @@ public class GameControl {
     {
 		  // create the Map object,
 		  // refer to the Map constructor
-    	 // Map theMap = new Map(MAX_ROW, MAX_COL);
+    	 Map theMap = new Map(MAX_ROW, MAX_COL);
 		    
 		 // create a string that will go in the Location objects
 		 // that contain the river
 		 String river = "You are on the River. The river is the source\n" +
 		 "of life for our city. The river marks the eastern\n " +
 		 "boundary of the city - it is wilderness to the East.\n";
+		 
 		 // create a new Location object
 		 Location loc = new Location();
 		 
@@ -102,7 +104,7 @@ public class GameControl {
 		 // set this location object in each cell of the array in column 4
 		 for(int i = 0; i < MAX_ROW; i++)
 		 {
-			// theMap.setLocation(i, 4, loc);
+			theMap.setLocation(i, 4, loc);
 		 }
 		 
 		//define the string for a farm land location
@@ -113,28 +115,50 @@ public class GameControl {
 		loc = new Location();
 		loc.setDescription(farmland + "\nOne bushel will plant two acres of wheat.");
 		loc.setSymbol("!!!");
-		//theMap.setLocation(0, 2, loc);
+		theMap.setLocation(0, 2, loc);
 		
 	    theGame = new Game();	
-		//theGame.setMap(theMap);
+		theGame.setMap(theMap);
     }
     
     public static void createAnimalList()
     {
-    	
-    ArrayList<ListItem> animals = new ArrayList<ListItem>();
-    //animals.add(new ListItem("cows", 12));
-    //animals.add(new ListItem("horses", 3));
-    //animals.add(new ListItem("pigs", 7));
-    //animals.add(new  ListItem("goats", 4));
-    
-    // Save the animals in the game
-    //theGame.setAnimals(animals);
+   
+   		
+	    ArrayList<ListItem> animals = new ArrayList<ListItem>();
+	    
+	    animals.add(new ListItem("cows", 12));
+		animals.add(new ListItem("horses", 3));
+	    animals.add(new ListItem("pigs", 7));
+	    animals.add(new  ListItem("goats", 4));
+	    
+	    // Save the animals in the game
+	    theGame.setAnimals(animals);
 	
     }
     
+    /**
+     * the createToolList() method
+     * Purpose: create a list of tools in a ArrayList
+     * Parameters: none
+     * Returns: none
+     * Author: Ramon Andrade
+     */
     public static void createToolList(){
-    	 System.out.println("Tool List");
+    
+      ArrayList<ListItem> tools = new ArrayList<ListItem>();
+  	    
+  	  tools.add(new ListItem("axe", 4));
+  	  tools.add(new ListItem("bow", 2));
+  	  tools.add(new ListItem("arrows", 30));
+  	  tools.add(new ListItem("mattock", 2));
+  	  tools.add(new ListItem("coulter", 2));
+  	  tools.add(new ListItem("cimeter", 2));
+  	  tools.add(new ListItem("rope", 20));
+  	    
+  	   // Save the tools in the game
+  	   theGame.setTools(tools);
+  	   
     }
     
     public static void createProvisionList(){

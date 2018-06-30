@@ -21,7 +21,7 @@ public class ListItem implements Serializable{
    private int number;
    
    // constructor
-   public ListItem(){
+   public ListItem(String name, int number){
        
    }
      
@@ -40,11 +40,11 @@ public class ListItem implements Serializable{
     public void setNumber (int newNumber){
         number=newNumber;
     }
+    
     //System.out.println("--ListItem--");
     //System.out.println(testListItem.toString());
     
-   @Override
-    public String toString() {
-        return "listitem name ="+ name +" listItem number=" + number + "}";
+   public String toString() {
+        return "{Name = "+ name +" Number = " + number + "}";
 }
 }

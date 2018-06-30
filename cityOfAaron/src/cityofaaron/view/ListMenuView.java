@@ -1,10 +1,12 @@
 package cityofaaron.view;
 
 import cityofaaron.CityOfAaron;
-import cityofaaron.control.CropControl;
-
-import java.util.Scanner;
+import cityofaaron.control.*;
 import cityofaaron.model.*;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
 /**
  *The MainMenuView class - part of the view layer
  *Object of this class manages the main menu
@@ -28,7 +30,7 @@ public class ListMenuView extends MenuView{
 		" 2 - List of animals \n" +
 		" 3 - List of tools \n" +
 		" 4 - List of provisions \n" +
-                " 5 - Return to Main Menu\n",
+        " 5 - Return to Game Menu\n",
 		5);
 	}  
 
@@ -48,18 +50,19 @@ public class ListMenuView extends MenuView{
 	             listAnimals();
 	             break;
 	         case 3:
-                     listTools();
+                 listTools();
 	             break;
 	         case 4:
 	             listProvisions();
 	             break;
 	         case 5:
-	        	  MainMenuView mmv = new MainMenuView();
-	              mmv.displayMenu();
+	        	  GameMenuView gmv = new GameMenuView();
+	              gmv.displayMenu();
 	             break;
 	     }
 	}
-        private void listTeam() {
+    
+	private void listTeam() {
 
 	 System.out.println("Team List");
 		
@@ -67,14 +70,32 @@ public class ListMenuView extends MenuView{
 
 	private void listAnimals() {
 
-		 System.out.println("List of Animals");
+
+		ArrayList<ListItem> animals = theGame.getTools();
+		
+		
+		for (ListItem listAnimals : animals) { 
+			
+	           System.out.println(animals.toString()); 		
+	      }
 		
 	}
 
+	/**
+	* The listTools method
+	* Purpose: list all the tools saved.
+	* Parameters: none
+	* Returns: none
+	* Ramon Andrade
+	*/
 	private void listTools() {
-
-		 System.out.println("List of Tools");
 		
+		ArrayList<ListItem> tools = theGame.getTools();
+		
+		for (ListItem listTools : tools) {
+			System.out.println(tools.toString());
+		}
+	
 	}
 
 	private void listProvisions() {
