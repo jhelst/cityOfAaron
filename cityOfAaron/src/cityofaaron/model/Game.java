@@ -8,95 +8,84 @@ import java.util.ArrayList;
 
 public class Game implements Serializable{
 
-    private Player thePlayer;
-    private CropData cropData = null;
-    private Map theMap;
+	private Player Player;
+    private CropData Crop;
+    private Map map;
     private ArrayList<ListItem> animals;
     private ArrayList<ListItem> tools;
     private ArrayList<ListItem> provisions;
-    private boolean done;
 
     
-    public Game() {
-    }
+    public Player getPlayer() {
+		return Player;
+	}
     
-    
-    /**
-    * the getCrops() method
-    * Purpose: get a reference to the crop object
-    * Parameters: none
-    * Returns: a reference to a crop object
-    */
-    public CropData getCrop()
-    {
-    	return cropData;
-    }
-    
+	public void setPlayer(Player Player) {
+		this.Player = Player;
+	}
+	
+	/**
+	    * the getCrops() method
+	    * Purpose: get a reference to the crop object
+	    * Parameters: none
+	    * Returns: a reference to a crop object
+	    */
+	public CropData getCrop() {
+		return Crop;
+	}
+	
+	 
     /**
     * the setCrops() method
     * Purpose: store a reference to a crop object
     * Parameters: a reference to a crop object
     * Returns: none
     */
-    public void setCrop(CropData cropRef)
-    {
-    	cropData = cropRef;
-    }
-
-    
-    public Player getPlayer() {
-        return thePlayer;
-    }
-    
-    public void setPlayer(Player thePlayer) {
-        this.thePlayer = thePlayer;
-    }
-    
-    public void setAnimals(ArrayList<ListItem> animals) {
-    	
-    	this.animals = animals;
-    	
-    }
-    
-    public ArrayList<ListItem> getAnimals() {
-    	
-    	return animals;
-    	
-    }
-    
-    /**
+	public void setCrop(CropData Crop) {
+		this.Crop = Crop;
+	}
+	
+	public ArrayList<ListItem> getAnimals() {
+		return animals;
+	}
+	
+	public void setAnimals(ArrayList<ListItem> animals) {
+		this.animals = animals;
+	}
+	
+	/**
      * the setTools() method
      * Purpose: store the toollist arrayList
      * Parameters: ArrayList
      * Returns: none
      */
-    public void setTools(ArrayList<ListItem> tools) {
-    	
-    	this.tools = tools;
-    	
-    }
-    
+	public ArrayList<ListItem> getTools() {
+		return tools;
+	}
+	
     /**
      * the getTools() method
      * Purpose: store the toolList ArrayList
      * Parameters: none
      * Returns: ArrayList
      */
-    public ArrayList<ListItem> getTools() {
-    	
-    	return tools;
-    	
-    }
-    
-    public void getMap(){
-    	
-    	
-    }
-    
-	public void setMap(Map theMap) {
-		// TODO Auto-generated method stub
-		
+	public void setTools(ArrayList<ListItem> tools) {
+		this.tools = tools;
 	}
-    
+	
+	public ArrayList<ListItem> getProvisions() {
+		return provisions;
+	}
+	
+	public void setProvisions(ArrayList<ListItem> provisions) {
+		this.provisions = provisions;
+	}
+	
+	
+	public void setMap(Map map){
+		
+		this.map = map;
+	}
+  
     
  }           

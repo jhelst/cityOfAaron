@@ -20,31 +20,35 @@ public class ListItem implements Serializable{
    private String name;
    private int number;
    
-   // constructor
-   public ListItem(String name, int number){
-       
-   }
+	public ListItem(String name, int number) {
+		super();
+		this.name = name;
+		this.number = number;
+	}
+	
+   
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public int getNumber() {
+		return number;
+	}
+	public void setNumber(int number) {
+		this.number = number;
+	}
+
+
+	@Override
+	public String toString() {
+		return "ListItem [name=" + name + ", number=" + number + "]";
+	}
+	
+	
+	
+
      
-   public String getName() {
-       return this.name;  
-   }
-   
-    public void setName(String newName) {
-       name = newName;
-   }
-    public int getNumber() {
-        return number;
-       
-    }
-   
-    public void setNumber (int newNumber){
-        number=newNumber;
-    }
-    
-    //System.out.println("--ListItem--");
-    //System.out.println(testListItem.toString());
-    
-   public String toString() {
-        return "{Name = "+ name +" Number = " + number + "}";
-}
+ 
 }

@@ -8,6 +8,7 @@ package cityofaaron.control;
 import java.util.ArrayList;
 import cityofaaron.CityOfAaron;
 import cityofaaron.model.*;
+import cityofaaron.view.*;
 
 /**
  *
@@ -20,11 +21,11 @@ public class GameControl {
     private static final int MAX_COL = 5;
     
 // reference to a Game object
-    private static Game theGame;
+    private static Game theGame = new Game();
 
     public static void createNewGame(String name) {
     	// Created the game object. Save it in the main driver file
-        theGame = new Game();
+
         CityOfAaron.setCurrentGame(theGame);
 
         // create the player object. Save it in the game object
@@ -52,7 +53,6 @@ public class GameControl {
  // method prologue ....
     public static void createCropDataObject()
     {
-	    theGame = new Game();
 	    CropData theCrops = new CropData();
 	    theCrops.setYear(0);
 	    theCrops.setPopulation(100);
@@ -116,8 +116,7 @@ public class GameControl {
 		loc.setDescription(farmland + "\nOne bushel will plant two acres of wheat.");
 		loc.setSymbol("!!!");
 		theMap.setLocation(0, 2, loc);
-		
-	    theGame = new Game();	
+			
 		theGame.setMap(theMap);
     }
     
@@ -130,7 +129,7 @@ public class GameControl {
 	    animals.add(new ListItem("cows", 12));
 		animals.add(new ListItem("horses", 3));
 	    animals.add(new ListItem("pigs", 7));
-	    animals.add(new  ListItem("goats", 4));
+	    animals.add(new ListItem("goats", 4));
 	    
 	    // Save the animals in the game
 	    theGame.setAnimals(animals);
@@ -155,7 +154,7 @@ public class GameControl {
   	  tools.add(new ListItem("coulter", 2));
   	  tools.add(new ListItem("cimeter", 2));
   	  tools.add(new ListItem("rope", 20));
-  	    
+  	   
   	   // Save the tools in the game
   	   theGame.setTools(tools);
   	   

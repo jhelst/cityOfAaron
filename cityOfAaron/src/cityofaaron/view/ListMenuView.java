@@ -1,9 +1,7 @@
 package cityofaaron.view;
 
-import cityofaaron.CityOfAaron;
-import cityofaaron.control.*;
-import cityofaaron.model.*;
-
+import cityofaaron.model.Game;
+import cityofaaron.model.ListItem;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -17,7 +15,8 @@ import java.util.Scanner;
 public class ListMenuView extends MenuView{
 	
 	 //Create a new Game object.
-	 Game theGame = new Game();
+	 private static Game gettheGame = new Game();
+	 
 	 protected final static Scanner keyboard = new Scanner(System.in);
 
 	public ListMenuView()
@@ -41,7 +40,7 @@ public class ListMenuView extends MenuView{
 	* Returns: none
 	*/
 	@Override public void doAction(int option)
-        {
+    {
 	 switch(option) {
    	         case 1:
 	             listTeam();
@@ -70,13 +69,12 @@ public class ListMenuView extends MenuView{
 
 	private void listAnimals() {
 
-
-		ArrayList<ListItem> animals = theGame.getTools();
+		ArrayList<ListItem> animals2 = gettheGame.getTools();
 		
 		
-		for (ListItem listAnimals : animals) { 
+		for (ListItem listAnimals : animals2) { 
 			
-	           System.out.println(animals.toString()); 		
+	           System.out.println(listAnimals.toString()); 		
 	      }
 		
 	}
@@ -90,12 +88,10 @@ public class ListMenuView extends MenuView{
 	*/
 	private void listTools() {
 		
-		ArrayList<ListItem> tools = theGame.getTools();
+		ArrayList<ListItem> tools = gettheGame.getTools();
 		
-		for (ListItem listTools : tools) {
-			System.out.println(tools.toString());
-		}
-	
+		System.out.println(tools);
+		
 	}
 
 	private void listProvisions() {
