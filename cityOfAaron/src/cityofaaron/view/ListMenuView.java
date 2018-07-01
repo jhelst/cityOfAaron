@@ -1,5 +1,6 @@
 package cityofaaron.view;
 
+import cityofaaron.CityOfAaron;
 import cityofaaron.model.Game;
 import cityofaaron.model.ListItem;
 import java.util.ArrayList;
@@ -15,7 +16,7 @@ import java.util.Scanner;
 public class ListMenuView extends MenuView{
 	
 	 //Create a new Game object.
-	 private static Game gettheGame = new Game();
+	 private static Game theGame;
 	 
 	 protected final static Scanner keyboard = new Scanner(System.in);
 
@@ -68,8 +69,8 @@ public class ListMenuView extends MenuView{
 	}
 
 	private void listAnimals() {
-
-		ArrayList<ListItem> animals2 = gettheGame.getTools();
+            Game theGame = CityOfAaron.getCurrentGame();
+		ArrayList<ListItem> animals2 = theGame.getTools();
 		
 		
 		for (ListItem listAnimals : animals2) { 
@@ -87,20 +88,29 @@ public class ListMenuView extends MenuView{
 	* Ramon Andrade
 	*/
 	private void listTools() {
+                Game theGame = CityOfAaron.getCurrentGame();
+
+		ArrayList<ListItem> tools = theGame.getTools();
 		
-		ArrayList<ListItem> tools = gettheGame.getTools();
 		
-		
-		for (ListItem listTools : tools) { 
+		for(ListItem tool : tools) { 
 			
-	           System.out.println(listTools.toString()); 		
+	           System.out.println(tool.toString()); 		
 	      }
 		
 	}
 
 	private void listProvisions() {
 
-		 System.out.println("List of Provisions");
+                Game theGame = CityOfAaron.getCurrentGame();
+
+		ArrayList<ListItem> provisions = theGame.getProvisions();
+		
+		
+		for(ListItem provision : provisions) { 
+			
+	           System.out.println(provision.toString()); 		
+	      }
 		
 	}
  

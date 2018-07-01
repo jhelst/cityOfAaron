@@ -124,7 +124,7 @@ public class GameControl {
     {
    
    		
-	    ArrayList<ListItem> animals = new ArrayList<ListItem>();
+	    ArrayList<ListItem> animals = new ArrayList<>();
 	    
 	    animals.add(new ListItem("cows", 12));
 		animals.add(new ListItem("horses", 3));
@@ -145,7 +145,7 @@ public class GameControl {
      */
     public static void createToolList(){
     
-      ArrayList<ListItem> tools = new ArrayList<ListItem>();
+      ArrayList<ListItem> tools = new ArrayList<>();
   	    
   	  tools.add(new ListItem("axe", 4));
   	  tools.add(new ListItem("bow", 2));
@@ -160,8 +160,26 @@ public class GameControl {
   	   
     }
     
+        /**
+     * the createProvisionList() method
+     * Purpose: create a list of provisions in a ArrayList
+     * Parameters: none
+     * Returns: none
+     * Author: jhelst
+     */
+    
     public static void createProvisionList(){
-    	 System.out.println("Provision List");
+      ArrayList<ListItem> provisions = new ArrayList<>();
+  	    
+  	  provisions.add(new ListItem("cart", 8));
+  	  provisions.add(new ListItem("wheel", 32));
+  	  provisions.add(new ListItem("cord", 300));
+  	  provisions.add(new ListItem("metal", 23));
+  	  provisions.add(new ListItem("copper", 22));
+          provisions.add(new ListItem("medicine", 200));
+
+  	   // Save the tools in the game
+  	   theGame.setProvisions(provisions);
     }
     
     

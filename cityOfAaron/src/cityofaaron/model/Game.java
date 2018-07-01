@@ -50,7 +50,7 @@ public class Game implements Serializable{
 	}
 	
 	public void setAnimals(ArrayList<ListItem> animals) {
-		this.animals = animals;
+		this.animals = new ArrayList<ListItem>(animals);
 	}
 	
 	/**
@@ -70,7 +70,7 @@ public class Game implements Serializable{
      * Returns: ArrayList
      */
 	public void setTools(ArrayList<ListItem> tools) {
-		this.tools = tools;
+		this.tools = new ArrayList<ListItem>(tools);
 	}
 	
 	public ArrayList<ListItem> getProvisions() {
@@ -78,7 +78,7 @@ public class Game implements Serializable{
 	}
 	
 	public void setProvisions(ArrayList<ListItem> provisions) {
-		this.provisions = provisions;
+		this.provisions = new ArrayList<ListItem>(provisions);
 	}
 	
 	

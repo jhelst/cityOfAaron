@@ -43,7 +43,7 @@ public class ListItem implements Serializable{
 
 	@Override
 	public String toString() {
-		return "ListItem [name=" + name + ", number=" + number + "]";
+		return name + "- quantity: " + number;
 	}
 	
 	
