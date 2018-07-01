@@ -182,7 +182,17 @@ public class GameControl {
   	   theGame.setProvisions(provisions);
     }
     
-    
+    public static void createTeamList(){
+        
+        ArrayList<ListItem> team = new ArrayList<ListItem>();
+          team.add(new ListItem("Jeff", 0));
+  	  team.add(new ListItem("Ramon", 1));
+  	  team.add(new ListItem("Carolina", 2));
+          
+          // Save the team in the game
+  	   theGame.setTeam(team);
+  	   
+    }
     
     
     
