@@ -39,6 +39,9 @@ public class GameControl {
         // create the list of animals
         createAnimalList();
    
+        // create the list of team members
+        createTeamList();        
+        
         // create the list of tools
         createToolList();
         
@@ -184,14 +187,14 @@ public class GameControl {
     
     public static void createTeamList(){
         
-        ArrayList<ListItem> team = new ArrayList<ListItem>();
+        ArrayList<ListItem> team = new ArrayList<>();
           team.add(new ListItem("Jeff", 0));
   	  team.add(new ListItem("Ramon", 1));
   	  team.add(new ListItem("Carolina", 2));
           
           // Save the team in the game
   	   theGame.setTeam(team);
-  	   
+           
     }
     
     

@@ -7,10 +7,11 @@ package cityofaaron.model;
 import java.util.ArrayList;
 
 public class Game implements Serializable{
-
-	private Player Player;
+    
+    private Player Player;
     private CropData Crop;
     private Map map;
+    private ArrayList<ListItem> team;
     private ArrayList<ListItem> animals;
     private ArrayList<ListItem> tools;
     private ArrayList<ListItem> provisions;
@@ -81,6 +82,13 @@ public class Game implements Serializable{
 		this.provisions = new ArrayList<ListItem>(provisions);
 	}
 	
+        public ArrayList<ListItem> getTeam() {
+            return team;
+	}
+	
+	public void setTeam(ArrayList<ListItem> team) {
+		this.team = new ArrayList<ListItem>(team);
+	}
 	
 	public void setMap(Map map){
 		

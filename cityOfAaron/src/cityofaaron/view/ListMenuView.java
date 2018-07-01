@@ -64,13 +64,19 @@ public class ListMenuView extends MenuView{
     
 	private void listTeam() {
 
-	 System.out.println("Team List");
+            Game theGame = CityOfAaron.getCurrentGame();
+		ArrayList<ListItem> team = theGame.getTeam();
+		
+		for (ListItem member : team) { 
+			
+	           System.out.println(member.getName()); 		
+	      }
 		
 	}
 
 	private void listAnimals() {
             Game theGame = CityOfAaron.getCurrentGame();
-		ArrayList<ListItem> animals2 = theGame.getTools();
+		ArrayList<ListItem> animals2 = theGame.getAnimals();
 		
 		
 		for (ListItem listAnimals : animals2) { 
