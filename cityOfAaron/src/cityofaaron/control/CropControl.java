@@ -2,6 +2,7 @@ package cityofaaron.control;
 
 import cityofaaron.model.CropData;
 import java.util.Random;
+import cityofaaron.exceptions.CropException;
 
 //The CropControl class - part of the control layer
 //class contains all of the calculation methods for managing the crops
@@ -56,22 +57,22 @@ public class CropControl {
      * purchase 
 	*
      */
-    public static int buyLand(int landPrice, int acresToBuy, CropData cropData) {
+    public static void buyLand(int landPrice, int acresToBuy, CropData cropData) throws CropException {
         //if acresToSell < 0, return -1
         if (acresToBuy < 0) {
-            return -1;
+            throw new CropException("A negative value was input");
         }
 
         //if acresToBuy > currentPopulation * 10, return -1
         int population = cropData.getPopulation();
         if (acresToBuy > population * 10) {
-            return -1;
+            throw new CropException("Not enough population to support land purchase");
         }
 
         // if wheatInStore < acresToBuy * landPrice, return -1
         int wheatInStore = cropData.getWheatInStore();
         if (wheatInStore < (acresToBuy * landPrice)) {
-            return -1;
+            throw new CropException("There is insufficient wheat to buy this much land");
         }
 
         // add new acreage
@@ -82,8 +83,6 @@ public class CropControl {
         // cost of purchase
         wheatInStore -= (acresToBuy * landPrice);
         cropData.setWheatInStore(wheatInStore);
-
-        return acresOwned;
     }
 
     /**
