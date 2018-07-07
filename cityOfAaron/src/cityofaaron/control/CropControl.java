@@ -163,15 +163,14 @@ public class CropControl {
      * @return: the number of bushels of grains
      * Author: carolmadella
      */
-    public static int feedPeople(int bushelsOfGrain, CropData cropData) {
+    public static int feedPeople(int bushelsOfGrain, CropData cropData) throws CropException {
 
         if (bushelsOfGrain < 0) {
-            return -1;
-        }
+            throw new CropException ("You do not have enough bushels of grain");        }
 
         int wheatInStore = cropData.getWheatInStore();
         if (wheatInStore < bushelsOfGrain) {
-            return -1;
+            throw new CropException ("You do not have enough wheat in store");
         }
 
         //get remaining wheat afer setting aside for people
