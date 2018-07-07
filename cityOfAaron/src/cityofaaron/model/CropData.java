@@ -12,7 +12,7 @@ public class CropData implements Serializable {
     private int population;
     private static int acresOwned;
     private int cropYield;
-    private int wheatInStore;
+    private static int wheatInStore;
     private int numberWhoDied;
     private int newPeople;
     private int harvest;
@@ -62,7 +62,7 @@ public class CropData implements Serializable {
     
     
 
-    public int getWheatInStore() {
+    public static int getWheatInStore() {
         return wheatInStore;
     }
 

@@ -22,6 +22,21 @@ public class CropView {
     private static CropData cropData = theGame.getCrop();
 
     /**
+     * The runCropsView method() Purpose: runs the game Parameters: none
+     * Returns: none
+     */
+    public static void runCropsView() {
+        buyLandView();
+        sellLandView();
+        feedPeopleView();
+        plantCropsView();
+        showStarvedView();
+        // add calls to the other crop view methods
+        // as they are written
+    }
+    
+    
+    /**
      * The buyLandView method Purpose: interface with the user input for buying
      * land Parameters: none Returns: none
      */
@@ -30,7 +45,6 @@ public class CropView {
         int price = CropControl.calcLandCost();
     // Prompt the user to enter the number of acres to buy
         System.out.format("Land is selling for %d bushels per acre.%n", price);
-        System.out.format("How many acres of land do you wish to buy? ");
         
         int toBuy;
         boolean paramsNotOkay;
@@ -64,38 +78,28 @@ public class CropView {
          
         // Prompt the user to enter the number of acres to sell
         System.out.format("You have %d acres owned.%n", acresOwned);
-        System.out.format("How many acres of land do you wish to sell? ");
 
          // Get the user’s input and save it.
         int acresToSell;
-        acresToSell = keyboard.nextInt();
+        boolean paramsNotOkay;
+        
+        do {
+            paramsNotOkay = false;
+            System.out.format("How many acres of land do you wish to sell? ");
+            acresToSell = keyboard.nextInt();
+            try {
+                // Call the sellLand() method in the control layer to sell the land
+                CropControl.sellLand(landPrice, acresToSell, cropData);
+                System.out.format("Sale completed. You now have " + CropData.getAcresOwned() + " acres. %n");
 
-         // Call the sellLand() method in the control layer to sell the land
-        int sellland = CropControl.sellLand(landPrice, acresToSell, cropData);
-
-        if (sellland != -1) {
-            System.out.format("Sale completed. You now have " + sellland + " acres. %n");
-        } else {
-            System.out.format("Unable to sell, please try another value. %n");
-        }
-         
+            } catch (CropException e) {
+                System.out.println("I am sorry master, I cannot do this.");
+                System.out.println(e.getMessage());
+                paramsNotOkay = true;
+            }
+        } while (paramsNotOkay);         
      }
      
-
-    /**
-     * The runCropsView method() Purpose: runs the game Parameters: none
-     * Returns: none
-     */
-    public static void runCropsView() {
-// call the buyLandView( ) method
-        buyLandView();
-        sellLandView();
-        feedPeopleView();
-        plantCropsView();
-        showStarvedView();
-// add calls to the other crop view methods
-// as they are written
-    }
 
     /**
      * The feedPeopleView method Purpose: interface with the user input for
@@ -125,19 +129,25 @@ public class CropView {
      */
     public static void plantCropsView() {
 // Prompt the user to enter the number of bushels of grain to use for food
-        System.out.format("How many acres of land do you want to plant? %n");
-// Get the user’s input and save it.
-        int acresOfLand;
-        acresOfLand = keyboard.nextInt();
-// Call the feedPeople( ) method in the control layer to subtract bushels and feed people
-        int inStore = CropControl.plantCrops(acresOfLand, cropData);
-        if (inStore != -1) {
-            System.out.format("Unable to plant crops with entered value, please try another value. %n");
-
-        } else {
-            System.out.format("Crops planted1. " + inStore + " bushels remain in stores. %n");
-
-        }
+        System.out.format("How many acres of land do you want to plant? %n");  
+        // Get the user’s input and save it.
+        int acresToPlant;
+        boolean paramsNotOkay;
+        
+        do {
+            paramsNotOkay = false;
+            System.out.format("How many acres of land do you wish to sell? ");
+            acresToPlant = keyboard.nextInt();
+            try {
+              // Call the sellLand() method in the control layer to sell the land
+                CropControl.plantCrops(acresToPlant, cropData);
+             System.out.format("Crops planted1. " + CropData.getWheatInStore() + " bushels remain in stores. %n");
+            } catch (CropException e) {
+                System.out.println("I am sorry master, I cannot do this.");
+                System.out.println(e.getMessage());
+                paramsNotOkay = true;
+            }
+        } while (paramsNotOkay);  
     }
     public static void showStarvedView() {
     

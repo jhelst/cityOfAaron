@@ -25,16 +25,16 @@ public class CropControl {
     // a reference to a CropData object
     // Pre-conditions: acresToSell >= 0 and acresToSell <= acresOwned
     // Returns: the number of acres owned after the sale
-    public static int sellLand(int landPrice, int acresToSell, CropData cropData) {
+    public static void sellLand(int landPrice, int acresToSell, CropData cropData) throws CropException {
         //if acresToSell < 0, return -1
         if (acresToSell < 0) {
-            return -1;
+            throw new CropException("A negative value was input");
         }
 
         //if acresToSell > acresOwned, return -1
         int acresOwned = cropData.getAcresOwned();
         if (acresToSell > acresOwned) {
-            return -1;
+            throw new CropException("You have selected more acres to sell than you currently own");
         }
 
         acresOwned -= acresToSell;
@@ -45,8 +45,6 @@ public class CropControl {
         wheatInStore -= (acresToSell * landPrice);
         cropData.setWheatInStore(wheatInStore);
 
-        //return acresOwned
-        return acresOwned;
     }
 
     /**
@@ -110,20 +108,21 @@ public class CropControl {
      * @ return the number of acres planted 
      * Author: jhelst
      */
-    public static int plantCrops(int acresToPlant, CropData cropData) {
+    public static void plantCrops(int acresToPlant, CropData cropData) throws CropException {
 
         if (acresToPlant < 0) {
-            return -1;
+            throw new CropException("Invalid number of acres to plant selected");
         }
 
         int wheatInStore = cropData.getWheatInStore();
         if (wheatInStore < acresToPlant / 2) {
-            return -1;
+            throw new CropException("Not enough wheat in store to plant crops");
+
         }
 
         int acresOwned = cropData.getAcresOwned();
         if (acresOwned < acresToPlant) {
-            return -1;
+            throw new CropException("You do not own enough acres to plant" + acresToPlant + "acres");
         }
 
         int acresPlanted = cropData.getAcresPlanted();
@@ -135,9 +134,6 @@ public class CropControl {
 
         wheatInStore -= (acresToPlant / 2);
         cropData.setWheatInStore(wheatInStore);
-
-        // return wheatInStore
-        return wheatInStore;
     }
 
     
