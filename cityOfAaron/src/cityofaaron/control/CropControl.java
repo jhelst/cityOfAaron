@@ -84,19 +84,37 @@ public class CropControl {
     }
 
     /**
-     * setOffering() method Purpose: Pay Tithes and Offerings Parameters: the
-     * percentage of harvest Pre-conditions: the harvest percentage must
-     * positive and smaller than 101 
+     * setOffering() method 
+     * Purpose: Pay Tithes and Offerings 
+     * Parameters: the percentage of harvest 
+     * Pre-conditions: the harvest percentage must positive and smaller than 101 
      * Return: int
      * Author: ramonandrade
+     * @throws CropException 
      */
-    public static int setOffering(int percentageHarvest, CropData cropData) {
-
-        if (percentageHarvest >= 0 && percentageHarvest <= 100) {
-            cropData.setOffering(percentageHarvest);
-            return percentageHarvest;
+    public static int setOffering(int percentageHarvest, CropData cropData) throws CropException {
+    	
+    	int getHarvest = cropData.getHarvest();
+    	    
+    	if (getHarvest <= 0) {
+             throw new CropException("You do not have Harvest");
         }
-        return -1;
+    	 
+        if (percentageHarvest >= 1 && percentageHarvest <= 100) {
+        	
+        	int harvestAfterOffering = getHarvest - ((getHarvest/100) * percentageHarvest); 
+        	percentageHarvest = (getHarvest/100) * percentageHarvest; 
+        	
+            cropData.setOffering(percentageHarvest);
+            cropData.setHarvest(harvestAfterOffering);
+        	cropData.setHarvestAfterOffering(harvestAfterOffering);
+            return percentageHarvest;
+            
+        }else {
+        	
+        	throw new CropException("The harvest percentage for your offering must be between 1 and 100");
+        	
+        }
 
     }
 

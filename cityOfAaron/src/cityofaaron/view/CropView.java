@@ -31,6 +31,7 @@ public class CropView {
         feedPeopleView();
         plantCropsView();
         showStarvedView();
+        setOffering();
         // add calls to the other crop view methods
         // as they are written
     }
@@ -128,7 +129,7 @@ public class CropView {
      * planting crops Parameters: none Returns: none
      */
     public static void plantCropsView() {
-// Prompt the user to enter the number of bushels of grain to use for food
+    	// Prompt the user to enter the number of bushels of grain to use for food
         System.out.format("How many acres of land do you want to plant? %n");  
         // Get the user’s input and save it.
         int acresToPlant;
@@ -149,12 +150,47 @@ public class CropView {
             }
         } while (paramsNotOkay);  
     }
+    
+    
+    // setOffering method
+    // Purpose: Pay Tithes and Offerings
+    // Parameters: none
+    // Returns: void
+    public static void setOffering() {
+   
+        // Get the user’s input and save it.
+        int harvestParcentage;
+        boolean paramsNotOkay;
+        
+        do {
+        	
+            paramsNotOkay = false;
+            System.out.format("What percentage of harvest do you want to donate? ");
+            harvestParcentage = keyboard.nextInt();
+            
+            try {
+    
+            	// Call the setOffering() method in the control layer to set the offering
+                CropControl.setOffering(harvestParcentage, cropData);
+                System.out.format("Offer made successfully.");
+
+            } catch (CropException e) {
+            
+            	System.out.println(e.getMessage());
+                paramsNotOkay = true;
+            
+            }
+            
+        } while (paramsNotOkay);         
+    }
+     
+    
     public static void showStarvedView() {
     
         int numStarved= CropData.getAcresOwned();
         System.out.format("Number of people starved:" + numStarved + " %n");
 
-        }
+    }
 
     public static void displayCropsReportView() {
            
