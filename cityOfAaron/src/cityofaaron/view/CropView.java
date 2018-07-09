@@ -105,16 +105,34 @@ public class CropView {
     /**
      * The feedPeopleView method Purpose: interface with the user input for
      * feeding people Parameters: none Returns: none
+     * @throws cityofaaron.exceptions.CropException
      */
-    public static void feedPeopleView() {
+    public static void feedPeopleView() throws CropException {
 // Prompt the user to enter the number of bushels of grain to use for food
         System.out.format("How many bushels of grain do you want to give the people? %n");
 // Get the user’s input and save it.
         int numOfBushels;
-        numOfBushels = keyboard.nextInt();
-// Call the feedPeople( ) method in the control layer to subtract bushels and feed people
-        int inStore = CropControl.feedPeople(numOfBushels, cropData);
-
+        boolean paramsNotOkay;
+        
+        do {
+           paramsNotOkay = false;
+           System.out.format("How much you want to give to the people? ");
+           numOfBushels = keyboard.nextInt();
+           
+           try{     
+          // Call the feedPeople( ) method in the control layer to subtract bushels and feed people
+                CropControl.feedPeople(numOfBushels, cropData);
+                System.out.format("You fed the people. You now have" + CropData.getWheatInStore() + "bushels of wheat.%n");
+           }
+           catch (CropException e) {
+               System.out.println ("Sorry, you cannot do this");
+               System.out.println (e.getMessage());
+               paramsNotOkay = true;
+           }
+            int inStore = CropControl.feedPeople(numOfBushels, cropData);
+                    
+        
+        
         if (inStore != -1) {
             System.out.format("Unable to feed people with entered value, please try another value. %n");
 
@@ -122,13 +140,12 @@ public class CropView {
             System.out.format("People fed. " + inStore + " bushels remain in stores. %n");
 
         }
-    }
 
     /**
      * The plantCropsView method Purpose: interface with the user input for
      * planting crops Parameters: none Returns: none
      */
-    public static void plantCropsView() {
+        public static void plantCropsView() {
     	// Prompt the user to enter the number of bushels of grain to use for food
         System.out.format("How many acres of land do you want to plant? %n");  
         // Get the user’s input and save it.
