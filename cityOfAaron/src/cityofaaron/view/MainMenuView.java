@@ -68,26 +68,37 @@ public class MainMenuView extends MenuView{
 	}
  
  
-	 private void displaySaveGameView() {
-		
-		 // Display a stub message
-		 System.out.println("Save Game View!");
-		
-	}
+    private void displaySaveGameView() {
+        // Get rid of nl character left in the stream
+        keyboard.nextLine();
+
+        // Prompt user for filepath 
+        System.out.println("\nPlease enter location of saved game:");
+        String filepath = keyboard.next();
+
+        // Create instance of game
+        Game theGame = CityOfAaron.getCurrentGame();
+
+        // Save game
+        GameControl.saveGame(theGame, filepath);
+
+    }
 
 	private void displayHelpMenuView() {
 		// Display Help Menu View
 		 HelpMenuView menu = new HelpMenuView();
 		 menu.displayMenu();
 	}
+        // TODO: Get file to start game
+        public void startSavedGame() {
+            System.out.println("\nPlease type in the file path of the saved game: ");
+            String filePath = keyboard.next();
 
-	private void startSavedGame() {
-		
-		 // Start the game
-		 GameMenuView menu = new GameMenuView();
-		 menu.displayMenu();
+            GameControl.getSavedGame(filePath);
 
-	}
+            GameMenuView gmv = new GameMenuView();
+            gmv.displayMenu();
+        }
       
 	/**
 	 * The startNewGame method

@@ -11,6 +11,8 @@ import cityofaaron.model.*;
 import cityofaaron.view.*;
 import java.io.FileInputStream;
 import java.io.ObjectInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
 
 /**
  *
@@ -220,7 +222,21 @@ public class GameControl {
         System.out.println("There was an error reading the saved game file\n");
         }
     }   
-    
+
+    public static void saveGame(Game theGame, String filePath) {
+
+        try (FileOutputStream fops = new FileOutputStream(filePath)) {
+            ObjectOutputStream output = new ObjectOutputStream(fops);
+            output.writeObject(theGame);
+            System.out.println("\nGame saved.");
+
+        } catch (Exception x) {
+            System.out.println("\nThere was an error saving the game");
+        }
+    }
+}
+
+
     
     
 
