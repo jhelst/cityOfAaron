@@ -107,7 +107,7 @@ public class CropView {
      * feeding people Parameters: none Returns: none
      * @throws cityofaaron.exceptions.CropException
      */
-    public static void feedPeopleView() throws CropException {
+    public static void feedPeopleView(){
 // Prompt the user to enter the number of bushels of grain to use for food
         System.out.format("How many bushels of grain do you want to give the people? %n");
 // Get the user’s input and save it.
@@ -122,24 +122,16 @@ public class CropView {
            try{     
           // Call the feedPeople( ) method in the control layer to subtract bushels and feed people
                 CropControl.feedPeople(numOfBushels, cropData);
-                System.out.format("You fed the people. You now have" + CropData.getWheatInStore() + "bushels of wheat.%n");
+                System.out.format("You fed the people. You now have " + CropData.getWheatInStore() + " bushels of wheat.%n");
            }
            catch (CropException e) {
-               System.out.println ("Sorry, you cannot do this");
-               System.out.println (e.getMessage());
+               System.out.println("Sorry, you cannot do this");
+               System.out.println(e.getMessage());
                paramsNotOkay = true;
            }
-            int inStore = CropControl.feedPeople(numOfBushels, cropData);
-                    
-        
-        
-        if (inStore != -1) {
-            System.out.format("Unable to feed people with entered value, please try another value. %n");
-
-        } else {
-            System.out.format("People fed. " + inStore + " bushels remain in stores. %n");
-
-        }
+        } while (paramsNotOkay);
+            int inStore = CropData.getWheatInStore();
+    }
 
     /**
      * The plantCropsView method Purpose: interface with the user input for
