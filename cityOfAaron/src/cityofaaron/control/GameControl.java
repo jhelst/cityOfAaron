@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import cityofaaron.CityOfAaron;
 import cityofaaron.model.*;
 import cityofaaron.view.*;
+import java.io.FileInputStream;
+import java.io.ObjectInputStream;
 
 /**
  *
@@ -197,9 +199,28 @@ public class GameControl {
            
     }
     
+        /**
+    * the getSavedGame method
+    * Purpose: load a saved game from disk
+    * Parameters: the file path
+    * Returns: none
+    * Side Effect: the game reference in the driver is updated
+    */
+    public static void getSavedGame(String filePath)
+    {
+        Game theGame = null;
+        try (FileInputStream fips = new FileInputStream(filePath))
+        {
+            ObjectInputStream input = new ObjectInputStream(fips);
+            theGame = (Game) input.readObject();
+            CityOfAaron.setCurrentGame(theGame);
+        }
+        catch(Exception e)
+        {
+        System.out.println("There was an error reading the saved game file\n");
+        }
+    }   
     
     
     
-    
-    
-}
+
