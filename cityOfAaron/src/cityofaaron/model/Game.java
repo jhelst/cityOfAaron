@@ -3,7 +3,7 @@ package cityofaaron.model;
  /*
  * @author jhelst, carolmadella, ramonandrade
  */
-   import java.io.Serializable;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 public class Game implements Serializable{

@@ -216,10 +216,12 @@ public class GameControl {
             ObjectInputStream input = new ObjectInputStream(fips);
             theGame = (Game) input.readObject();
             CityOfAaron.setCurrentGame(theGame);
+            System.out.println("\nGame loaded.");
+
         }
         catch(Exception e)
         {
-        System.out.println("There was an error reading the saved game file\n");
+        System.out.println("There was an error reading the saved game file\n "+ e);
         }
     }   
 

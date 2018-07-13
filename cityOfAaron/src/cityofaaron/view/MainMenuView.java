@@ -89,7 +89,7 @@ public class MainMenuView extends MenuView{
 		 HelpMenuView menu = new HelpMenuView();
 		 menu.displayMenu();
 	}
-        // TODO: Get file to start game
+
         public void startSavedGame() {
             System.out.println("\nPlease type in the file path of the saved game: ");
             String filePath = keyboard.next();

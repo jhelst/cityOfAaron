@@ -4,12 +4,13 @@
  * and open the template in the editor.
  */
 package cityofaaron.model;
+import java.io.Serializable;
 
 /**
  *
  * @author carolmadella
  */
-public class Map {
+public class Map implements Serializable {
     private int rowCount; 
     private int colCount;
     private Location[] [] locations;
