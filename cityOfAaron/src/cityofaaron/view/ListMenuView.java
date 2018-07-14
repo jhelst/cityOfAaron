@@ -30,8 +30,9 @@ public class ListMenuView extends MenuView{
 		" 2 - List of animals \n" +
 		" 3 - List of tools \n" +
 		" 4 - List of provisions \n" +
-        " 5 - Return to Game Menu\n",
-		5);
+		" 5 - Create Report Menu\n" +
+        " 6 - Return to Game Menu\n",
+		6);
 	}  
 
  /**
@@ -56,12 +57,22 @@ public class ListMenuView extends MenuView{
 	             listProvisions();
 	             break;
 	         case 5:
+	        	 createReport();
+	             break;
+	         case 6:
 	        	  GameMenuView gmv = new GameMenuView();
 	              gmv.displayMenu();
 	             break;
 	     }
 	}
     
+	private void createReport(){
+		
+		ReportView rv = new ReportView();
+		rv.displayMenu();
+		
+	}
+	
 	private void listTeam() {
 
             Game theGame = CityOfAaron.getCurrentGame();
