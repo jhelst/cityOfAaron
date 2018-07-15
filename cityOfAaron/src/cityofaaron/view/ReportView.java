@@ -98,6 +98,40 @@ public class ReportView extends MenuView {
         }
 
     }
+    private void reportAnimals() {
+
+        Game theGame = CityOfAaron.getCurrentGame();
+        ArrayList<ListItem> animals = theGame.getAnimals();
+
+        String path = askFolder();
+
+        try {
+            exportList(animals, path);
+
+        } catch (IOException e) {
+
+            System.out.println(e.getMessage());
+
+        }
+    }
+        private void reportTeam() {
+
+        Game theGame = CityOfAaron.getCurrentGame();
+        ArrayList<ListItem> team = theGame.getTeam();
+
+        String path = askFolder();
+
+        try {
+            exportList(team, path);
+
+        } catch (IOException e) {
+
+            System.out.println(e.getMessage());
+
+        }
+
+    }
+
 
     public String askFolder() {
 
