@@ -1,0 +1,10 @@
+City Of Aaron - Report
+
+
+Name			Number
+cart			8
+wheel			32
+cord			300
+metal			23
+copper			22
+medicine			200

@@ -10,6 +10,10 @@ package cityofaaron;
 import cityofaaron.model.*;
 import cityofaaron.view.*;
 import cityofaaron.control.*;
+import java.io.BufferedReader;
+import java.io.PrintWriter;
+import java.io.InputStreamReader;
+import java.io.IOException;
 /**
  *
  * @author jhelst, carolmadella, ramonandrade
@@ -20,6 +24,9 @@ public class CityOfAaron {
     private static Game theGame = null;
     
     private static Game currentGame = null;
+    private static BufferedReader userInput = null;
+    private static PrintWriter gameOutput = null;
+    private static PrintWriter logs = null;
     
     public static Game getCurrentGame() {
         return currentGame;
@@ -28,80 +35,48 @@ public class CityOfAaron {
     public static void setCurrentGame(Game theGame) {
         currentGame = theGame;
     }
-
-    public static void main(String[] args) {
-        // Main Menu constructor
-        MainMenuView mmv = new MainMenuView();
-        mmv.displayMenu();
-        
-        /*
-    	//Player constructor
-    	Player newPlayer = new Player();
-        
-        // Game constructor
-        Game theGame = new Game();
-        
-        // CropData constructor
-        CropData testCropData = new CropData();
-        
-        //ListItem constructor
-        ListItem newListItem = new ListItem();
-
-        // Set player name from newPlayer
-    	//newPlayer.setName("Carolina");        
-        // Set player name from theGame
-        //theGame.setPlayer(newPlayer);
-        
-        
-        
-        // Print out player information for Team Assignment (May 17)
-        System.out.println("--Player--");        
-        System.out.println("Name from Player: " + newPlayer.getName());
-        System.out.println("From Game: " +theGame.getPlayer());
-    	System.out.println("From TeamMembers: { Name= " + TeamMembers.TeamMember1.getName() + " Description= " + TeamMembers.TeamMember1.getTitle() + " }");
-        
-        
-        // CropData, printed here for individual assignment purposes (May 19). These setters and getters will be eventually accessed through Game
-        testCropData.setYear(1);
-        testCropData.setPopulation(150);
-        testCropData.setAcresOwned(1000);
-        testCropData.setCropYield(500);
-        testCropData.setWheatInStore(400);
-        testCropData.setNumberWhoDied(0);
-        testCropData.setNewPeople(50);
-        testCropData.setHarvest(300);
-        testCropData.setHarvestAfterOffering(270);
-        testCropData.setOffering(30);
-        testCropData.setOfferingBushels(3);
-        testCropData.setPeopleFed(200);
-        testCropData.setAcresPlanted(10);
-        testCropData.setNumStarved(0);
-        testCropData.setEatenByRats(0);
-        testCropData.setWheatForPeople(300); 
-        
-        System.out.println("--CropData--");
-        System.out.println(testCropData.toString());
-        
-        
-        // Test of location class (May 19) - Ramon Andrade
-        Location loc = new Location();
-        loc.setDescription("Ramon");        
-        loc.setSymbol("$");
-        
-        System.out.println("--Location--");
-        System.out.println(loc.toString());
-        
-        
-        CropControl cropControl = new CropControl();
-        
-        System.out.println("-- Set Offering --");
-        cropControl.setOffering(10, testCropData);
-        
-        System.out.println(testCropData.getOffering());
-        
-        */
-        
-        
-    }
     
+    public static void setInput(BufferedReader input) {
+            CityOfAaron.userInput = input;
+    }
+
+    public static PrintWriter getLogs() {
+            return logs;
+    }
+
+    public static PrintWriter getOutput() {
+            return gameOutput;
+    }
+    public static void main(String[] args) {
+        // Improved error handling using InputStreamReader, PrintWriter, and IO exception APIs
+        // Still working on making this better.
+        try {
+            userInput = new BufferedReader(new InputStreamReader(System.in));
+            gameOutput = new PrintWriter(System.out, true);
+            logs = new PrintWriter("errorLogs.txt");
+
+            // Main Menu constructor, starting the game
+            MainMenuView mmv = new MainMenuView();
+            mmv.displayMenu();
+        } catch (Throwable err) {
+            System.out.println("There was an error. Please restart\n"
+                    + "***** ERROR *******\n"
+                    + err.getMessage());
+            err.printStackTrace();
+            return;
+        } finally {
+            try {
+                if (userInput != null) {
+                    userInput.close();
+                } else if (gameOutput != null) {
+                    gameOutput.close();
+                } else if (logs != null) {
+                    logs.close();
+                }
+            } catch (IOException exception) {
+                System.console().printf("%s%s", "Error closing program");
+                return;
+            }
+        }
+    }
 }
