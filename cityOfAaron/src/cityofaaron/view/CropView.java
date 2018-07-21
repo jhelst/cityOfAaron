@@ -26,12 +26,22 @@ public class CropView {
      * Returns: none
      */
     public static void runCropsView() {
+        if (theGame.getToolCount() < 1){
+          theGame.setToolCount(62);
+         }
+        if (theGame.getToolMultiplier() == 0) {
+            theGame.setToolMultiplier(1);
+        }
+        System.out.println("ToolCount: " + theGame.getToolCount()+ " Mult: " + theGame.getToolMultiplier());
         buyLandView();
         sellLandView();
         feedPeopleView();
         plantCropsView();
         showStarvedView();
         setOffering();
+        if (cropData.getWheatInStore() > 0){
+            showUseSurplusView();
+        }
         // add calls to the other crop view methods
         // as they are written
     }
@@ -108,8 +118,6 @@ public class CropView {
      * @throws cityofaaron.exceptions.CropException
      */
     public static void feedPeopleView(){
-// Prompt the user to enter the number of bushels of grain to use for food
-        System.out.format("How many bushels of grain do you want to give the people? %n");
 // Get the user’s input and save it.
         int numOfBushels;
         boolean paramsNotOkay;
@@ -138,20 +146,24 @@ public class CropView {
      * planting crops Parameters: none Returns: none
      */
         public static void plantCropsView() {
-    	// Prompt the user to enter the number of bushels of grain to use for food
-        System.out.format("How many acres of land do you want to plant? %n");  
+
         // Get the user’s input and save it.
         int acresToPlant;
         boolean paramsNotOkay;
+        int toolCount = theGame.getToolCount();
+        double toolMultiplier = theGame.getToolMultiplier();
         
         do {
             paramsNotOkay = false;
-            System.out.format("How many acres of land do you wish to sell? ");
+            // Prompt the user to enter the number of bushels of grain to use for food
+            System.out.format("How many acres of land do you want to plant? ");  
+            System.out.println("toolsCount" + theGame.getToolCount());
+            System.out.println("theGameMultiplier>>>" + theGame.getToolMultiplier());
             acresToPlant = keyboard.nextInt();
             try {
               // Call the sellLand() method in the control layer to sell the land
-                CropControl.plantCrops(acresToPlant, cropData);
-             System.out.format("Crops planted1. " + CropData.getWheatInStore() + " bushels remain in stores. %n");
+                CropControl.plantCrops(acresToPlant, toolCount, toolMultiplier, cropData);
+             System.out.format("Crops planted. " + CropData.getWheatInStore() + " bushels remain in stores. %n");
             } catch (CropException e) {
                 System.out.println("I am sorry master, I cannot do this.");
                 System.out.println(e.getMessage());
@@ -191,6 +203,28 @@ public class CropView {
             }
             
         } while (paramsNotOkay);         
+    }
+    
+    public static void showUseSurplusView() {
+      
+        int toolsDesired;
+        boolean paramsNotOkay;
+        
+        do {
+            paramsNotOkay = false;
+            System.out.format("\n You have surplus wheat, how many additional tools would you like to purchase for next harvest? \n");
+            toolsDesired = keyboard.nextInt();
+            
+            try {
+               // Call useSurplusWheatForTools() method
+               CropControl.useSurplusWheatForTools(toolsDesired, cropData);
+               System.out.format("Purchase complete. Purchased " + toolsDesired + " tool(s)");
+
+            } catch (CropException e) {
+                System.out.println(e.getMessage());
+                paramsNotOkay = true;
+            }
+        } while (paramsNotOkay);   
     }
      
     

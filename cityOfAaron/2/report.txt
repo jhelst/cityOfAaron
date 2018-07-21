@@ -1,0 +1,11 @@
+City Of Aaron - Report
+
+
+Name			Number
+axe			4
+bow			2
+arrows			30
+mattock			2
+coulter			2
+cimeter			2
+rope			20

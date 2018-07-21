@@ -13,6 +13,8 @@ import java.io.FileInputStream;
 import java.io.ObjectInputStream;
 import java.io.FileOutputStream;
 import java.io.ObjectOutputStream;
+import java.util.Random;
+
 
 /**
  *
@@ -24,10 +26,13 @@ public class GameControl {
     private static final int MAX_ROW = 5;
     private static final int MAX_COL = 5;
     
+    // random number generator
+    private static Random random = new Random();
+    
 // reference to a Game object
     private static Game theGame = new Game();
-
-    public static void createNewGame(String name) {
+    
+     public static void createNewGame(String name) {
     	// Created the game object. Save it in the main driver file
 
         CityOfAaron.setCurrentGame(theGame);
@@ -36,7 +41,6 @@ public class GameControl {
         Player thePlayer = new Player();
         thePlayer.setName(name);
         theGame.setPlayer(thePlayer);
-        
         // create the CropData object   
         createCropDataObject();
    
@@ -59,12 +63,12 @@ public class GameControl {
     
  // method prologue ....
     public static void createCropDataObject()
-    {
+    {  
 	    CropData theCrops = new CropData();
 	    theCrops.setYear(0);
 	    theCrops.setPopulation(100);
 	    theCrops.setNewPeople(5);
-	    theCrops.setCropYield(3);
+	    theCrops.setCropYield(300);
 	    theCrops.setNumberWhoDied(0);
 	    theCrops.setOffering(10);
 	    theCrops.setWheatInStore(2700);
@@ -151,7 +155,7 @@ public class GameControl {
      * Author: Ramon Andrade
      */
     public static void createToolList(){
-    
+          int toolCount = 62;
       ArrayList<ListItem> tools = new ArrayList<>();
   	    
   	  tools.add(new ListItem("axe", 4));
@@ -164,6 +168,7 @@ public class GameControl {
   	   
   	   // Save the tools in the game
   	   theGame.setTools(tools);
+           theGame.setToolCount(toolCount);
   	   
     }
     

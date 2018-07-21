@@ -1,8 +1,14 @@
 package cityofaaron.control;
 
+import cityofaaron.CityOfAaron;
 import cityofaaron.model.CropData;
 import java.util.Random;
 import cityofaaron.exceptions.CropException;
+import cityofaaron.model.Game;
+import cityofaaron.model.ListItem;
+import java.util.ArrayList;
+import java.lang.Math;
+
 
 //The CropControl class - part of the control layer
 //class contains all of the calculation methods for managing the crops
@@ -17,6 +23,7 @@ public class CropControl {
 
     // random number generator
     private static Random random = new Random();
+    private static Game theGame = new Game();
 
     
     // sellLand method
@@ -126,7 +133,7 @@ public class CropControl {
      * @ return the number of acres planted 
      * Author: jhelst
      */
-    public static void plantCrops(int acresToPlant, CropData cropData) throws CropException {
+    public static void plantCrops(int acresToPlant, int toolCount, double toolMultiplier, CropData cropData) throws CropException {
 
         if (acresToPlant < 0) {
             throw new CropException("Invalid number of acres to plant selected");
@@ -151,7 +158,8 @@ public class CropControl {
         cropData.setAcresOwned(acresOwned);
 
         wheatInStore -= (acresToPlant / 2);
-        cropData.setWheatInStore(wheatInStore);
+        int wheat = (int) Math.round(wheatInStore * toolMultiplier);
+        cropData.setWheatInStore(wheat);
     }
 
     
@@ -184,6 +192,51 @@ public class CropControl {
     }
     
     
+    /*
+     * The useSurplusWheatForTools method Purpose: To use surplus crops for purchase of tools
+     *
+     * @param: tools to purchase
+     * @param: reference to a CropData object
+     * Author: jhelst
+     */
+    public static void useSurplusWheatForTools(int toolsToPurchase, CropData cropData) throws CropException {
+        // 1 tool per 2 bushel of wheat
+        int _toolsToPurchase = toolsToPurchase;
+        if (toolsToPurchase < 0) {
+            throw new CropException ("Please pick a valid amount to use");        }
+
+        int wheatInStore = cropData.getWheatInStore();
+        if (wheatInStore < toolsToPurchase * 2) {
+            throw new CropException ("You do not have enough wheat in store. You may only use surplus");
+        }
+
+        //get remaining wheat after spending for tools
+        wheatInStore -= toolsToPurchase * 2;
+        
+        Game theGame = CityOfAaron.getCurrentGame();
+        ArrayList<ListItem> tools = theGame.getTools();
+        
+        // Spend our purchased tools on each tool in the list one at a time.
+        // It doesn't really matter in our game what tools have what amount, just the total amount
+        while (_toolsToPurchase > 0) {
+            for (ListItem tool : tools) {	
+                if (_toolsToPurchase > 0){
+                     _toolsToPurchase--;
+                     int toolCount = tool.getNumber();
+                 tool.setNumber(toolCount + 1);
+                 theGame.setToolCount(theGame.getToolCount() + 1);
+                 System.out.println("hit");
+                         
+                 }
+             }
+        }
+        System.out.println("toolsCount" + theGame.getToolCount());
+        theGame.setToolMultiplier(Math.round(theGame.getToolCount() / (theGame.getToolCount() - 1)  * 1.5));
+        // update cropData
+        cropData.setWheatInStore(wheatInStore);
+    }    
+    
+    
     
     /*
     * calcLandCost() method
@@ -196,5 +249,5 @@ public class CropControl {
     int landPrice = random.nextInt(LAND_RANGE) + LAND_BASE;
     return landPrice;
     }
-
+    
 }

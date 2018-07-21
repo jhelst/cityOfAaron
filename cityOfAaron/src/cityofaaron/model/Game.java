@@ -11,6 +11,8 @@ public class Game implements Serializable{
     private Player Player;
     private CropData Crop;
     private Map map;
+    private double multiplier;
+    private int toolCount;
     private ArrayList<ListItem> team;
     private ArrayList<ListItem> animals;
     private ArrayList<ListItem> tools;
@@ -94,6 +96,21 @@ public class Game implements Serializable{
 		
 		this.map = map;
 	}
+        
+        public void setToolMultiplier(double multiplier) {
+            this.multiplier = multiplier;
+        }
+        
+        public double getToolMultiplier(){
+            return multiplier;
+        }
+        
+        public void setToolCount(int toolCount) {
+            this.toolCount = toolCount;
+        }
+        
+        public int getToolCount(){
+            return toolCount;
+        }
   
-    
  }           
