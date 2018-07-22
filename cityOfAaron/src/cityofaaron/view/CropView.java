@@ -42,10 +42,26 @@ public class CropView {
         if (cropData.getWheatInStore() > 0){
             showUseSurplusView();
         }
+        
+        if (cropData.getYear() >= 10  || cropData.getNumStarved() > 100){
+            endTheGame(cropData);
+        }
         // add calls to the other crop view methods
         // as they are written
     }
     
+    public static void endTheGame(CropData cropData){
+           if (cropData.getYear() >= 10){
+               System.out.println("Game Over! Your game reached the max of 10 years");
+           }
+           else if (cropData.getNumStarved() > 100) {
+               System.out.println("Game Over! You've starved too many people");
+           } else {
+               
+           }
+          
+    
+    }
     
     /**
      * The buyLandView method Purpose: interface with the user input for buying
