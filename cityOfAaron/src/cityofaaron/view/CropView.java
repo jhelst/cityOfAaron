@@ -32,7 +32,7 @@ public class CropView {
         if (theGame.getToolMultiplier() == 0) {
             theGame.setToolMultiplier(1);
         }
-        System.out.println("ToolCount: " + theGame.getToolCount()+ " Mult: " + theGame.getToolMultiplier());
+        
         buyLandView();
         sellLandView();
         feedPeopleView();
@@ -173,8 +173,6 @@ public class CropView {
             paramsNotOkay = false;
             // Prompt the user to enter the number of bushels of grain to use for food
             System.out.format("How many acres of land do you want to plant? ");  
-            System.out.println("toolsCount" + theGame.getToolCount());
-            System.out.println("theGameMultiplier>>>" + theGame.getToolMultiplier());
             acresToPlant = keyboard.nextInt();
             try {
               // Call the sellLand() method in the control layer to sell the land
